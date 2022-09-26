@@ -17,7 +17,23 @@ def GetCountry():
     if cursor.rowcount > 0:
         for row in result:
             print(row[0])
+        return row[0]
+
+
+
+def GetAirport(country):
+    sql = "SELECT airport.name FROM airport, country WHERE airport.iso_country = country.iso_country and country.name ='" + country + "' ORDER BY RAND() LIMIT 1"
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    if cursor.rowcount > 0:
+        for row in result:
+            print(row[0])
         return
 
-GetCountry()
 
+country = GetCountry()
+GetAirport(country)
+country = input("Enter the country you want to travel: ")
+
+GetAirport(country)
