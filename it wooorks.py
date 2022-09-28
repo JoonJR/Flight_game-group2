@@ -74,7 +74,7 @@ def dice_chance(budget):    #rolling the dice befor each flight(NOT FINISHED)
         #double the amount of Co2 consumed.
     elif number == 3:
         pass
-        #get_random_destination function
+        #random country
     elif number == 4:
         pass
         #Your plane had to return to the previous airport. Full amount of Co2 wasted
