@@ -1,5 +1,4 @@
 import mysql.connector
-import
 connection = mysql.connector.connect(
          host='127.0.0.1',
          port=3306,
@@ -73,9 +72,10 @@ while count <3:
     area_code1 = str(GetAirport(country))
     area_code2 = input("Enter area code of the second airport: ")
     distance_traveled = f"{(geodesic(get_location(area_code1), get_location(area_code2)).kilometers):.6}"
-    co2_used = (geodesic(get_location(area_code1), get_location(area_code2))*CO2_km)
-    co2_int = int(co2_used)
+    co2_used = (geodesic(get_location(area_code1), get_location(area_code2)).kilometers*CO2_km)
+    co2_int = float(co2_used)
     print(f"The distance between the two airports is {distance_traveled} km"
       f"\n CO2 used : {co2_used}")
     count+=1
     co2+=co2_int
+    print(co2)
