@@ -78,4 +78,4 @@ while count <3:
       f"\n CO2 used : {co2_used}")
     count+=1
     co2+=co2_int
-    print(co2)
+    print("total co2 used:",co2)
