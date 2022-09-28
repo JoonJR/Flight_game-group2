@@ -54,6 +54,11 @@ def get_location(airport): #returns long/lat of an airport
             location.append(row[0])
         return location
 
+def check_continents(current_continent): # checks the list with the continents and removes it if the current continent is the same as in the list
+    for x in range(len(continents) - 1):
+        if current_continent == continents[x]:
+            continents.remove(continents[x])
+
 def dice_chance(budget):    #rolling the dice befor each flight(NOT FINISHED)
     number = random.randint(1, 6)
     if number == 1: #50% chance of dying
@@ -90,29 +95,32 @@ def dice_chance(budget):    #rolling the dice befor each flight(NOT FINISHED)
 
 is_alive = True
 budget = 4000
-continents = () # tuple to store continents
+continents = ["EU", "AF", "NA", "SA", "OC", "AS", "AN"] # list that stores all the continents
 player_name = input("Enter your name: ")
 print(f"Hello {player_name}! You have been given the mission of travelling to all 7 continents! You will be given a plane and a Co2 budget of 4000 which you cannot exceed. For every 1000km you use 100 Co2.\nYour starting location will be random. From that point you can choose to fly to any country, however the airport will be random.")
 print("Every time before you fly a dice of destiny will be rolled. The outcomes of the rolls are as follows:\n6. You get a full Co2 refund for that particular flight.\n5. You get a 50% Co2 refund for that particular flight.\n4. Your plane had to return to the previous airport. Full amount of Co2 wasted for that trip.\n3. Your planes GPS breaks and you end up at a random destination anywhere in the world.\n2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n1. Worst possible scenario. You have a 50% chance of dying.")
 current_country = get_country()
+check_continents(get_continent(current_country))
+
 
 while is_alive: #while the game is on and player is alive
 
     if budget <= 0:
         print("You ran out of Co2 before reaching all the continents. Game Over!")
         is_alive = False # you lost
-    if len(continents) == 7:
+    if len(continents) == 0:
         print("You won! You made it to all 7 continents without exceeding your budget!")
         is_alive = False # you won! the game is finished
 
 
-    print(f"You are currently in {current_country} at {get_airport(current_country)} in {get_continent(current_country)}. Your current Co2 budget is {budget}. You have traveled to (X amount) continent(s).")
-
+    print(f"You are currently in {current_country} at {get_airport(current_country)} in {get_continent(current_country)}. Your current Co2 budget is {budget}. You have traveled to {7 - len(continents)}/7 continents.")
     destination = input("Enter the country you wish to travel to: ")
     destination_country = get_airport(destination)
     distance = geodesic(get_location(get_airport(current_country)), get_location(destination_country)).kilometers # calculates the distance
     budget -= int(distance / 10) # calculates Co2
     current_country = destination # updates the current location
+    check_continents(get_continent(current_country))
+
 
 
 
