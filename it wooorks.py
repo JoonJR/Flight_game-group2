@@ -112,7 +112,6 @@ while is_alive: #while the game is on and player is alive
         print("You won! You made it to all 7 continents without exceeding your budget!")
         is_alive = False # you won! the game is finished
 
-
     print(f"You are currently in {current_country} at {get_airport(current_country)} in {get_continent(current_country)}. Your current Co2 budget is {budget}. You have traveled to {7 - len(continents)}/7 continents.")
     destination = input("Enter the country you wish to travel to: ")
     destination_country = get_airport(destination)
