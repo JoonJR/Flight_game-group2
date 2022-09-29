@@ -28,13 +28,10 @@ def get_airport(country):
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()
-#    if result:
- #       return None
-    print(result)
-    print(result == [])
     if result==[]:
-        print('wrong!')
+        print('This country does not exist, try again.')
         return None
+        get_airport2(country)
     if cursor.rowcount > 0:
         for row in result:
             return row[0]
@@ -163,9 +160,7 @@ while is_alive: #while the game is on and player is alive
 
         destination = input("Enter the country you wish to travel to: ")
         destination_country = get_airport(destination)
-        print('final', destination_country)
         if destination_country == None:
-            print('continuing')
             continue
 
         number = dice_chance()
