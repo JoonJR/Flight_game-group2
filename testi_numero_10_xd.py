@@ -129,15 +129,15 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 4. Your plane had to return to the previous airport. Full amount of Co2 wasted for that trip.\n\
 3. Your planes GPS breaks and you end up at a random destination anywhere in the world.\n\
 2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
-1. Worst possible scenario. You have a 50% chance of dying."
+1. Worst possible scenario. You have a 50% chance of dying.\n"
 
 
 
 
 
 #typewriter(rules)
-rounds = 0
-while rounds != 3:
+rounds = 1
+while rounds != 4:
     is_alive = True
     budget = 4000
     continents = ["EU", "AF", "NA", "SA", "OC", "AS", "AN"]  # list that stores all the continents
@@ -263,9 +263,10 @@ while rounds != 3:
                     current_country = destination  # updates the current location
                     check_continents(get_continent(current_country))
                     print(f"Your flight was {distance:.1f} kilometers")
-    rounds +=1
-    if rounds != 3:
-        print("\n\nGet ready for next round!\n\n")
-
+    rounds += 1
+    if rounds == 2:
+        typewriter("\n\nGet ready for second round!\n\n")
+    if rounds == 3:
+        typewriter("\n\nGet ready for third and last round!\n\n")
 else:
-    print("3 rounds played. Game over.\n Your score was: ")
+    typewriter("3 rounds played. Game over.\n Your score was: ")
