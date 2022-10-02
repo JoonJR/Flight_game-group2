@@ -263,7 +263,6 @@ while rounds != 4:
 
                     recent_airport += current_airport
                     destination_airport = get_airport(destination)
-                    print(destination_airport)
                     distance = geodesic(get_location(get_airport(current_country)), get_location(destination_airport)).kilometers
                     budget -= int(distance / 10)
 
