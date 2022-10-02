@@ -27,12 +27,13 @@ def get_country():
 
 def get_airport(country):
 
-    sql = "SELECT airport.name FROM airport, country WHERE airport.iso_country = country.iso_country and country.name ='" + country + "' ORDER BY RAND() LIMIT 1"
+    sql = "SELECT airport.name FROM airport, country WHERE airport.iso_country = country.iso_country and country.name ='" + country + "' and airport.type like '%airport' ORDER BY RAND() LIMIT 1"
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()
     while result==[]:
 
+        current_country = recent_country
         print('This country does not exist, try again.')
         country = input("Enter the country you wish to travel to: ")
         sql = "SELECT airport.name FROM airport, country WHERE airport.iso_country = country.iso_country and country.name ='" + country + "' ORDER BY RAND() LIMIT 1"
@@ -236,7 +237,8 @@ while rounds != 4:
                 number = dice_chance()
                 if number == 1: #1. Worst possible scenario. You have a 50% chance of dying."
 
-                    print(death_text[random.randint(0, 4)])
+                    death = death_text[random.randint(0, 4)]
+                    typewriter(death)
                     is_alive = False
                     break
 
@@ -257,6 +259,7 @@ while rounds != 4:
                     print(f"Your flight was {distance:.1f} kilometers")
 
                 if number == 4: #4. Your plane had to return to the previous airport. Full amount of Co2 wasted
+
 
                     recent_airport += current_airport
                     destination_airport = get_airport(destination)
