@@ -117,7 +117,7 @@ fullrefund_text = ["You found an old coupon for a free flight on the floor of a 
 player_name = input("Enter your name: ")
 
 rules = "Hello " + player_name + "! You have been given the mission of travelling to all 7 continents! You will be given a plane and a Co2 budget of 4000 which you cannot exceed. For every 1000km you use 100 Co2.\n\
-Your starting location will be random. From that point you can choose to fly to any country, however the airport will be random. \nYou have 3 rounds/lives, you collect 100 points for each continent per round. However if you die you do not keep your score\n\
+Your starting location will be random. From that point you can choose to fly to any country, however the airport will be random. \nYou have 3 rounds/lives, you collect 100 points for each continent per round. \n\
 Every time before you fly a dice of destiny will be rolled. The outcomes of the rolls are as follows:\n\
 6. You get a full Co2 refund for that particular flight.\n\
 5. You get a 50% Co2 refund for that particular flight.\n\
@@ -160,15 +160,15 @@ while rounds != 4:
 
             if recent_airport != "":
 
-                print(f"\nYou are currently in {recent_country} at {recent_airport} in {get_continent(recent_country)}. Your current Co2 budget is {budget}. You have traveled to {7 - len(continents)}/7 continents.\n")
+                print(f"You are currently in {recent_country} at {recent_airport} in {get_continent(recent_country)}. Your current Co2 budget is {budget}. You have traveled to {7 - len(continents)}/7 continents.\n")
                 score = ((7 - len(continents)) * 100)
                 recent_airport = ""
-                destination = input("Enter the country you wish to travel to: ")
+                destination = input("\nEnter the country you wish to travel to: ")
                 destination_airport = get_airport(destination)
 
                 while destination_airport is None:
 
-                    destination = input("Enter the country you wish to travel to: ")
+                    destination = input("\nEnter the country you wish to travel to: ")
                     destination_airport = get_airport(destination)
 
                 else:
@@ -186,8 +186,8 @@ while rounds != 4:
                             budget -= int(distance / 10)  # calculates Co2
                             current_country = destination  # updates the current location
                             check_continents(get_continent(current_country))
-                            print(neardeath_text[random.randint(0, 5)])
-                            print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
+                            typewriter(neardeath_text[random.randint(0, 5)])
+                            print(f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                     if number == 2:  # 2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
 
@@ -204,8 +204,8 @@ while rounds != 4:
                         distance = geodesic(get_location(get_airport(current_country)), get_location(destination_airport)).kilometers
                         budget -= int(distance / 10)  # calculates Co2
                         check_continents(get_continent(current_country))
-                        print(randomcountry_text[random.randint(0, 3)])
-                        print(f"You ended up in {current_country} in {get_continent(current_country)}. Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
+                        typewriter(randomcountry_text[random.randint(0, 3)])
+                        print(f"\nYou ended up in {current_country} in {get_continent(current_country)}. Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                     if number == 4:  # 4. Your plane had to return to the previous airport. Full amount of Co2 wasted
 
@@ -238,12 +238,12 @@ while rounds != 4:
                 current_airport = get_airport(current_country)
                 print(f"\nYou are currently in {current_country} at {current_airport} in {get_continent(current_country)}. Your current Co2 budget is {budget}. You have traveled to {7 - len(continents)}/7 continents.")
 
-                destination = input("Enter the country you wish to travel to: ")
+                destination = input("\nEnter the country you wish to travel to: ")
                 destination_airport = get_airport(destination)
 
                 while destination_airport is None:
 
-                    destination = input("Enter the country you wish to travel to: ")
+                    destination = input("\nEnter the country you wish to travel to: ")
                     destination_airport = get_airport(destination)
 
                 else:
@@ -260,8 +260,8 @@ while rounds != 4:
                             budget -= int(distance / 10)  # calculates Co2
                             current_country = destination  # updates the current location
                             check_continents(get_continent(current_country))
-                            print(neardeath_text[random.randint(0, 5)])
-                            print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
+                            typewriter(neardeath_text[random.randint(0, 5)])
+                            print(f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                     if number == 2:  # 2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
 
@@ -278,8 +278,8 @@ while rounds != 4:
                         distance = geodesic(get_location(get_airport(current_country)), get_location(destination_airport)).kilometers
                         budget -= int(distance / 10)  # calculates Co2
                         check_continents(get_continent(current_country))
-                        print(randomcountry_text[random.randint(0, 3)])
-                        print(f"You ended up in {current_country} in {get_continent(current_country)}. Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
+                        typewriter(randomcountry_text[random.randint(0, 3)])
+                        print(f"\nYou ended up in {current_country} in {get_continent(current_country)}. Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                     if number == 4:  # 4. Your plane had to return to the previous airport. Full amount of Co2 wasted
 
@@ -309,11 +309,9 @@ while rounds != 4:
     rounds += 1
     if rounds == 2:
         score1 = ((7 - len(continents)) * 100)
-        print(score1)
         typewriter("\n\nGet ready for second round!\n\n")
     if rounds == 3:
         score2 = ((7 - len(continents)) * 100)
-        print(score2)
         typewriter("\n\nGet ready for third and last round!\n\n")
 else:
     typewriter(f"\n3 rounds played. Game over.\n Your score was: {(score1 + score2 + score)}")
