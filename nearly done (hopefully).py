@@ -129,7 +129,7 @@ neardeath_text = ["You tripped while leaving the plane and proceeded to fall dow
 
 randomcountry_text = ["The pilot forgot to Never Eat Soggy Waffles and ended up going in the opposite direction.",
                       "Your pilot partied a bit too much the night before and didnt realise a change of schedule.",
-                      "Your plane got hijacked by honey-mooners who couldnt afford the flights for their dream trip",
+                      "Your plane got hijacked by honey-mooners who could not afford the flights for their dream trip",
                       "You accidentally got onto the wrong plane without anyone noticing"]
 
 fullrefund_text = ["You found an old coupon for a free flight on the floor of a public toilet. All expenses paid.",
