@@ -196,7 +196,7 @@ def flight_game_continent():
                             budget -= int(distance / 10) * 2  # calculates Co2
                             current_country = destination  # updates the current location
                             check_continents(get_continent(current_country))
-                            print("Your plane had to take an unexpected detour, doubling the cost of Co2.")
+                            typewriter("Your plane had to take an unexpected detour, doubling the cost of Co2.")
                             print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10)*2:.1f} Co2")
 
                         if number == 3:  # 3. Your planes GPS breaks and you end up at a random destination anywhere in the world.\n\
@@ -214,7 +214,7 @@ def flight_game_continent():
                             destination_airport = get_airport(destination)
                             distance = geodesic(get_location(get_airport(current_country)), get_location(destination_airport)).kilometers
                             budget -= int(distance / 10)
-                            print("Your plane had to return to the previous airport. Full amount of Co2 had to be paid.")
+                            typewriter("Your plane had to return to the previous airport. Full amount of Co2 had to be paid.")
                             print(f"Your flight was {0} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                         if number == 5:  # 5. You get a 50% Co2 refund for that particular flight.\n\
@@ -223,7 +223,7 @@ def flight_game_continent():
                             budget -= int(distance / 10) / 2
                             current_country = destination
                             check_continents(get_continent(current_country))
-                            print("You got a good discount and only had to pay 50% of the original Co2 cost.")
+                            typewriter("You got a good discount and only had to pay 50% of the original Co2 cost.")
                             print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10)/2:.1f} Co2")
 
                         if number == 6:  # 6. You get a full Co2 refund for that particular flight.\n\
@@ -231,7 +231,7 @@ def flight_game_continent():
                             budget -= int(distance / 10) - int(distance / 10)
                             current_country = destination
                             check_continents(get_continent(current_country))
-                            print(fullrefund_text[random.randint(0, 4)])
+                            typewriter(fullrefund_text[random.randint(0, 4)])
                             print(f"Your flight was {distance:.1f} kilometers and you had to pay {0} Co2")
 
                 else:
@@ -270,7 +270,7 @@ def flight_game_continent():
                             budget -= int(distance / 10) * 2  # calculates Co2
                             current_country = destination  # updates the current location
                             check_continents(get_continent(current_country))
-                            print("Your plane had to take an unexpected detour, doubling the cost of Co2.")
+                            typewriter("Your plane had to take an unexpected detour, doubling the cost of Co2.")
                             print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10) * 2:.1f} Co2")
 
                         if number == 3:  # 3. Your planes GPS breaks and you end up at a random destination anywhere in the world.\n\
@@ -288,7 +288,7 @@ def flight_game_continent():
                             destination_airport = get_airport(destination)
                             distance = geodesic(get_location(get_airport(current_country)), get_location(destination_airport)).kilometers
                             budget -= int(distance / 10)
-                            print("Your plane had to return to the previous airport. Full amount of Co2 had to be paid.")
+                            typewriter("Your plane had to return to the previous airport. Full amount of Co2 had to be paid.")
                             print(f"Your flight was {0} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                         if number == 5:  # 5. You get a 50% Co2 refund for that particular flight.\n\
@@ -297,7 +297,7 @@ def flight_game_continent():
                             budget -= int(distance / 10) / 2
                             current_country = destination
                             check_continents(get_continent(current_country))
-                            print("You got a good discount and only had to pay 50% of the original Co2 cost.")
+                            typewriter("You got a good discount and only had to pay 50% of the original Co2 cost.")
                             print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10) / 2:.1f} Co2")
 
                         if number == 6:  # 6. You get a full Co2 refund for that particular flight.\n\
@@ -305,7 +305,7 @@ def flight_game_continent():
                             budget -= int(distance / 10) - int(distance / 10)
                             current_country = destination
                             check_continents(get_continent(current_country))
-                            print(fullrefund_text[random.randint(0, 4)])
+                            typewriter(fullrefund_text[random.randint(0, 4)])
                             print(f"Your flight was {distance:.1f} kilometers and you had to pay {0} Co2")
         rounds += 1
         if rounds == 2:
