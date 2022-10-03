@@ -127,7 +127,7 @@ neardeath_text = ["You tripped while leaving the plane and proceeded to fall dow
                   "Your plane was about to take off and then you quickly remembered you didnt change your phones mode to flight mode.\nYou frantically make the change before takeoff saving the lives of many. A true hero.",
                   "A bump in the sky during mealtime caused a swedish meatball to go down the wrong pipe. Thankfully a vet was nearby to help."]
 
-randomcountry_text = ["The pilot forgot to Never Eat Soggy Wheetbix and ended up going in the opposite direction.",
+randomcountry_text = ["The pilot forgot to Never Eat Soggy Waffles and ended up going in the opposite direction.",
                       "Your pilot partied a bit too much the night before and didnt realise a change of schedule.",
                       "Your plane got hijacked by honey-mooners who couldnt afford the flights for their dream trip",
                       "You accidentally got onto the wrong plane without anyone noticing"]
