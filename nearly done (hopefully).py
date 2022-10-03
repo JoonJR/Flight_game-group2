@@ -7,7 +7,7 @@ from time import sleep
 import sys
 connection = mysql.connector.connect(
          host='127.0.0.1',
-         port= 3306,
+         port=3306,
          database='flight_game',
          user='root',
          password='root',
@@ -30,16 +30,13 @@ def get_airport(country):
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()
-    if result==[]:
+    if not result:
         print('This country does not exist, try again.')
         return None
 
     if cursor.rowcount > 0:
         for row in result:
             return row[0]
-
-
-
 
 
 def get_airport2(country):
@@ -52,7 +49,7 @@ def get_airport2(country):
             return row[0]
 
 
-def get_continent(country): #returns continent
+def get_continent(country):  # returns continent
     sql = "SELECT country.continent FROM country WHERE country.name ='" + country + "'"
     cursor = connection.cursor()
     cursor.execute(sql)
@@ -62,7 +59,7 @@ def get_continent(country): #returns continent
             return row[0]
 
 
-def get_location(airport): #returns long/lat of an airport
+def get_location(airport):  # returns long/lat of an airport
     location = []
     sql = "SELECT longitude_deg, latitude_deg FROM airport WHERE airport.name ='" + airport + "'"
     cursor = connection.cursor()
@@ -75,32 +72,10 @@ def get_location(airport): #returns long/lat of an airport
         return location
 
 
-def check_continents(current_continent): # checks the list with the continents and removes it if the current continent is the same as in the list
+def check_continents(current_continent):  # checks the list with the continents and removes it if the current continent is the same as in the list
     for x in range(len(continents) - 1):
         if current_continent == continents[x]:
             continents.remove(continents[x])
-
-
-#def dice_chance():  # rolling the dice befor each flight(NOT FINISHED)
- #   number = random.randint(1, 6)
-  #  if number == 1:
-   #     print("")# 50% chance of dying
-    #elif number == 2:
-     #   print("\nDouble the amount of Co2 consumed.\n")
-        # double the amount of Co2 consumed.
-    #elif number == 3:
-     #   print("\nYour planes GPS breaks and you end up at a random destination anywhere in the world.\n")
-        # random country
-    #elif number == 4:
-     #   print("\nYour plane had to return to the previous airport. Full amount of Co2 wasted.\n")
-        # Your plane had to return to the previous airport. Full amount of Co2 wasted
-    #elif number == 5:
-     #   print("\n50% discount on co2.\n")
-        # 50% discount
-    #else:
-     #   print("\n100% discount on co2\n")
-        # 100% discount
-    #return number
 
 
 def typewriter(rules):
@@ -128,8 +103,8 @@ neardeath_text = ["You tripped while leaving the plane and proceeded to fall dow
                   "A bump in the sky during mealtime caused a swedish meatball to go down the wrong pipe. Thankfully a vet was nearby to help."]
 
 randomcountry_text = ["The pilot forgot to Never Eat Soggy Waffles and ended up going in the opposite direction.",
-                      "Your pilot partied a bit too much the night before and didnt realise a change of schedule.",
-                      "Your plane got hijacked by honey-mooners who could not afford the flights for their dream trip",
+                      "Your pilot partied a bit too much the night before and didn't realise a change of schedule.",
+                      "Your plane got hijacked by honeymooners who could not afford the flights for their dream trip",
                       "You accidentally got onto the wrong plane without anyone noticing"]
 
 fullrefund_text = ["You found an old coupon for a free flight on the floor of a public toilet. All expenses paid.",
@@ -138,7 +113,7 @@ fullrefund_text = ["You found an old coupon for a free flight on the floor of a 
                    "You spoke to the pilot on your way onto the plane and it turns out hes your sisters cousins uncles brother. He let you on for free. No Co2 spent.",
                    "You spoke to the pilot on your way onto the plane and it turns out hes your uncles sisters aunts nephew. He let you on for free. No Co2 spent."]
 
- # list that stores all the continents
+# list that stores all the continents
 player_name = input("Enter your name: ")
 
 rules = "Hello " + player_name + "! You have been given the mission of travelling to all 7 continents! You will be given a plane and a Co2 budget of 4000 which you cannot exceed. For every 1000km you use 100 Co2.\n\
@@ -151,9 +126,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
 1. Worst possible scenario. You have a 50% chance of dying.\nGood luck!\nps if there are errors its your fault :p\n"
 
-
-
-typewriter(rules)
+#typewriter(rules)
 
 rounds = 1
 score = 0
@@ -171,15 +144,15 @@ while rounds != 4:
     current_airport = None
     recent_airport = ""
 
-    while is_alive: #while the game is on and player is alive
+    while is_alive:  # while the game is on and player is alive
 
         if budget <= 0:
             print("You ran out of Co2 before reaching all the continents. Game Over!")
-            is_alive = False # you lost
+            is_alive = False  # you lost
             break
         if len(continents) == 0:
             print("You won! You made it to all 7 continents without exceeding your budget!")
-            is_alive = False # you won! the game is finished
+            is_alive = False  # you won! the game is finished
 
         while budget > 0 and is_alive:
 
@@ -193,17 +166,15 @@ while rounds != 4:
                 destination = input("Enter the country you wish to travel to: ")
                 destination_airport = get_airport(destination)
 
-
-                while destination_airport == None:
+                while destination_airport is None:
 
                     destination = input("Enter the country you wish to travel to: ")
                     destination_airport = get_airport(destination)
 
-
                 else:
-                    #number = dice_chance()
+
                     number = random.randint(1, 6)
-                    if number == 1:  # 1. Worst possible scenario. You have a 50% chance of dying."
+                    if number == 1:  # 1. Worst possible scenario. You have a 50% chance of dying.
                         possible_death = random.randint(1, 2)
                         if possible_death == 1:
                             death = death_text[random.randint(0, 4)]
@@ -270,16 +241,14 @@ while rounds != 4:
                 destination = input("Enter the country you wish to travel to: ")
                 destination_airport = get_airport(destination)
 
-                while destination_airport == None:
+                while destination_airport is None:
 
                     destination = input("Enter the country you wish to travel to: ")
                     destination_airport = get_airport(destination)
 
-
                 else:
-                    #number = dice_chance()
                     number = random.randint(1, 6)
-                    if number == 1:  # 1. Worst possible scenario. You have a 50% chance of dying."
+                    if number == 1:  # 1. Worst possible scenario. You have a 50% chance of dying.
                         possible_death = random.randint(1, 2)
                         if possible_death == 1:
                             death = death_text[random.randint(0, 4)]
