@@ -59,21 +59,21 @@ def easter_egg():
                         print("\n")
                         break
                     elif egg == "no":
-                        egg = input("Are you sure? (yes/no): ")
+                        print("Wrong answer.")
                 elif egg == '1':
                     print("\n")
                     break
                 elif egg == "no":
-                    egg = input("Are you sure? (yes/no): ")
+                    print("Wrong answer.")
             elif egg == '1':
                 print("\n")
                 break
             elif egg == "no":
-                egg = input("Are you sure? (yes/no): ")
+                print("Wrong answer.")
         elif egg == '1':
             print("\n")
             break
         elif egg == "no":
-            egg = input("Are you sure? (yes/no): ")
+            print("Wrong answer.")
 
 

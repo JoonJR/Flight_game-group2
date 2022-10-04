@@ -2,7 +2,7 @@ from continent_game_function import *
 from Functions import *
 
 while True:
-    print("Welcome to Green Wash Airlines")
+    typewriter("Welcome to Green Wash Airlines\n")
     main_menu = int(input("1. Continent game \n2. Europe game \n3. Credits \n4. Something funny. \n5. Quit\n"))
     if main_menu == 1:
         flight_game_continent()
