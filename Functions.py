@@ -1,7 +1,6 @@
 import mysql.connector
 import time
 import sys
-import os
 connection = mysql.connector.connect(
          host='127.0.0.1',
          port=3306,
@@ -22,19 +21,21 @@ def typewriter(rules):
         else:
             time.sleep(1)
 
+
 def cheat_sheet():
-    countrylist = [['Andorra  ', 'Albania  ', 'Austria  ', 'Belgium  ', 'Slovakia ', 'Bulgaria ', 'Belarus  ',
+    country_list = [['Andorra  ', 'Albania  ', 'Austria  ', 'Belgium  ', 'Slovakia ', 'Bulgaria ', 'Belarus  ',
                     'Serbia   ', 'Sweden   ', 'Germany  ', 'Denmark  ', 'Estonia  ', 'Spain    ', 'Finland  ',
                     'Romania  '], ['France     ', 'Ukraine    ', 'Guernsey   ', 'Gibraltar  ', 'Greece     ',
                     'Croatia    ', 'Hungary    ', 'Ireland    ', 'Monaco     ', 'Iceland    ', 'Italy      ',
                     'Jersey     ', 'Russia     ', 'Lithuania  ', 'Luxembourg '], ['Latvia      ', 'Isle of Man ',
-                    'Moldova     ', 'Montenegro  ', 'Kosovo      ', 'Malta  ','Netherlands  ', 'Norway  ', 'Poland  ',
+                    'Moldova     ', 'Montenegro  ', 'Kosovo      ', 'Malta  ', 'Netherlands  ', 'Norway  ', 'Poland  ',
                     'Portugal  ', 'Faroe Islands  ', 'Switzerland  ', 'Liechtenstein  ', 'Czech Republic  ',
-                    'Slovenia  '],['Bosnia and Herzegovina  ', 'San Marino  ', 'United Kingdom  ', 'Vatican City  ',
+                    'Slovenia  '], ['Bosnia and Herzegovina  ', 'San Marino  ', 'United Kingdom  ', 'Vatican City  ',
                     'North Macedonia  ', '', '', '', '', '', '', '', '', '', '']]
     print("\nCHEAT SHEET, MAKE SURE TEACHER DOESN'T SEE YOU!!!")
-    for x, y, z, q in zip(*countrylist):
+    for x, y, z, q in zip(*country_list):
         print(x, y, z, q)
+
 
 def credits_text():
     credits = "Designed and developed by Group 2\nKarin Domagalska\nJoona Rantala\nCan Erman\nNadim Ahmed"

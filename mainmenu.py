@@ -1,6 +1,5 @@
 from continent_game_function import *
 from Functions import *
-import os
 
 while True:
     print("Welcome to Green Wash Airlines")
@@ -23,5 +22,3 @@ while True:
     elif main_menu == 5:
         typewriter("Exiting the game.")
         break
-
-
