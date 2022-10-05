@@ -10,7 +10,7 @@ connection = mysql.connector.connect(
          port=3306,
          database='flight_game',
          user='root',
-         password='136133136',
+         password='root',
          autocommit=True
          )
 
@@ -24,14 +24,14 @@ def get_country():
             return row[0]
 
 
-def get_airport(country):
-    sql = "SELECT airport.name FROM airport, country WHERE airport.iso_country = country.iso_country and country.name ='" + country + "' and airport.type like '%airport' ORDER BY RAND() LIMIT 1"
+def get_airport2(country):
+    sql = "SELECT airport.name FROM airport, country WHERE airport.iso_country = country.iso_country and country.name ='" + country + "' and airport.type like '%airport'"
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()
-    if not result:
-        print('This country does not exist, try again.')
-        return None
+    if cursor.rowcount > 0:
+        for row in result:
+            return row[0]
 country=get_country()
 print(get_country())
-print(get_airport(country))
+print(get_airport2(country))
