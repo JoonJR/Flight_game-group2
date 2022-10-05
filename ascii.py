@@ -1,10 +1,12 @@
 def ascii_text(number):
     if number == 1:
         print("""      
-                                                                                                 
-round 1 
-                                                                                                                                                                                                                                        
-  """)
+ dPYb  dP 888b. .d88b. 8    8 8b  8 888b.    d8  dPYb  dP 
+dP  YbdP  8  .8 8P  Y8 8    8 8Ybm8 8   8     8 dP  YbdP  
+          8wwK' 8b  d8 8b..d8 8  "8 8   8     8           
+          8  Yb `Y88P' `Y88P' 8   8 888P'     8           
+                                                                     
+                                                    """)
     if number == 2:
         print("""
         
@@ -46,3 +48,24 @@ round2
                                                                                                                                                                                          
                                                                                                                                                                                          
         """)
+
+
+def ascii_pictures(number):
+    if number == 0:
+        print("""⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀island death picture                          
+        """)
+    if number == 1:
+        print("""⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀drunk death picture""")
+    if number == 2:
+        print("""
+        flip death picture
+        """)
+    if number == 3:
+        print("""
+        fish death picture
+        """)
+    if number == 4:
+        print("""
+           snake deathvpicture """)
