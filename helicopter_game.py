@@ -10,7 +10,7 @@ connection = mysql.connector.connect(
          port=3306,
          database='flight_game',
          user='root',
-         password='136133136',
+         password='root',
          autocommit=True
          )
 """""
@@ -99,11 +99,28 @@ def get_location(heliport):  # returns long/lat of an airport
 
 country= get_country2()
 country_d= get_heliport2(country)
+def get_continent(country):  # returns continent
+    sql = "SELECT country.continent FROM country WHERE country.name ='" + country + "'"
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    if cursor.rowcount > 0:
+        for row in result:
+            return row[0]
 
-def check_countries():
-    for x in range(len(heliport_countries)-1):
-        if current_country==heliport_countries[x]:
-            heliport_countries.remove(heliport_countries[x])
+def check_countries(current_country):
+    for x in range(len(country_list)-1):
+        if current_country==country_list[x]:
+            country_list.remove(country_list[x])
+def typewriter(rules):
+    for char in rules:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+
+        if char != "\n":
+            time.sleep(0.02)
+        else:
+            time.sleep(0.5)
 
 
 
@@ -134,7 +151,7 @@ fullrefund_text = ["You found an old coupon for a free flight on the floor of a 
 # list that stores all the continents
 player_name = input("Enter your name: ")
 
-rules = "Hello " + player_name + "! You have been given the mission of travelling to all 7 continents! You will be given a plane and a Co2 budget of 4000 which you cannot exceed. For every 1000km you use 100 Co2.\n\
+rules = "Hello " + player_name + "! You have been given the mission of travelling to all 49 continents! You will be given a plane and a Co2 budget of 4000 which you cannot exceed. For every 1000km you use 100 Co2.\n\
 Your starting location will be random. From that point you can choose to fly to any country, however the airport will be random. \nYou have 3 rounds/lives, you collect 100 points for each continent per round. \n\
 Every time before you fly a dice of destiny will be rolled. The outcomes of the rolls are as follows:\n\
 6. You get a full Co2 refund for that particular flight.\n\
@@ -169,26 +186,26 @@ while rounds != 4:
             is_alive = False  # you lost
             break
         if len(country_list) == 0:
-            print("You won! You made it to all 7 continents without exceeding your budget!")
+            print("You won! You made it to all 49 continents without exceeding your budget!")
             is_alive = False  # you won! the game is finished
 
         while budget > 0 and is_alive:
 
             recent_country = current_country
 
-            if recent_airport != "":
+            if recent_heliport != "":
 
                 print(
-                    f"You are currently in {recent_country} at {recent_airport} . Your current Co2 budget is {budget}. You have traveled to {7 - len(country_list)}/7 country.\n")
+                    f"You are currently in {recent_country} at {recent_heliport} . Your current Co2 budget is {budget}. You have traveled to {49 - len(country_list)}/49 country.\n")
                 score = ((49 - len(country_list)) * 100)
                 recent_airport = ""
                 destination = input("\nEnter the country you wish to travel to: ")
-                destination_airport = get_heliport2(destination)
+                destination_helipport = get_heliport2(destination)
 
-                while destination_airport is None:
+                while destination_heliport is None:
 
                     destination = input("\nEnter the country you wish to travel to: ")
-                    destination_airport = get_heliport2(destination)
+                    destination_heliport = get_heliport2(destination)
 
                 else:
 
@@ -201,80 +218,80 @@ while rounds != 4:
                             is_alive = False
                             break
                         else:
-                            distance = geodesic(get_location(get_airport(current_country)),
-                                                get_location(destination_airport)).kilometers
+                            distance = geodesic(get_location(get_heliport2(current_country)),
+                                                get_location(destination_heliport)).kilometers
                             budget -= int(distance / 10)  # calculates Co2
                             current_country = destination  # updates the current location
-                            check_continents(get_continent(current_country))
+                            check_countries(current_country)
                             typewriter(neardeath_text[random.randint(0, 5)])
                             print(
                                 f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                     if number == 2:  # 2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
 
-                        distance = geodesic(get_location(get_airport(current_country)),
-                                            get_location(destination_airport)).kilometers
+                        distance = geodesic(get_location(get_heliport2(current_country)),
+                                            get_location(destination_heliport)).kilometers
                         budget -= int(distance / 10) * 2  # calculates Co2
                         current_country = destination  # updates the current location
-                        check_continents(get_continent(current_country))
+                        check_countries(current_country)
                         print("Your plane had to take an unexpected detour, doubling the cost of Co2.")
                         print(
                             f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10) * 2:.1f} Co2")
 
                     if number == 3:  # 3. Your planes GPS breaks and you end up at a random destination anywhere in the world.\n\
 
-                        current_country = get_country()
-                        distance = geodesic(get_location(get_airport(current_country)),
-                                            get_location(destination_airport)).kilometers
+                        current_country = get_country2()
+                        distance = geodesic(get_location(get_heliport2(current_country)),
+                                            get_location(destination_heliport)).kilometers
                         budget -= int(distance / 10)  # calculates Co2
-                        check_continents(get_continent(current_country))
+                        check_countries()
                         typewriter(randomcountry_text[random.randint(0, 3)])
                         print(
                             f"\nYou ended up in {current_country} in {get_continent(current_country)}. Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                     if number == 4:  # 4. Your plane had to return to the previous airport. Full amount of Co2 wasted
 
-                        recent_airport += current_airport
-                        destination_airport = get_airport(destination)
-                        distance = geodesic(get_location(get_airport(current_country)),
-                                            get_location(destination_airport)).kilometers
+                        recent_airport += current_heliport
+                        destination_heliport = get_heliport2(destination)
+                        distance = geodesic(get_location(get_heliport2(current_country)),
+                                            get_location(destination_heliport)).kilometers
                         budget -= int(distance / 10)
                         print("Your plane had to return to the previous airport. Full amount of Co2 had to be paid.")
                         print(f"Your flight was {0} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                     if number == 5:  # 5. You get a 50% Co2 refund for that particular flight.\n\
 
-                        distance = geodesic(get_location(get_airport(current_country)),
-                                            get_location(destination_airport)).kilometers
+                        distance = geodesic(get_location(get_heliport2(current_country)),
+                                            get_location(destination_heliport)).kilometers
                         budget -= int(distance / 10) / 2
                         current_country = destination
-                        check_continents(get_continent(current_country))
+                        check_countries(current_country)
                         print("You got a good discount and only had to pay 50% of the original Co2 cost.")
                         print(
                             f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10) / 2:.1f} Co2")
 
                     if number == 6:  # 6. You get a full Co2 refund for that particular flight.\n\
-                        distance = geodesic(get_location(get_airport(current_country)),
-                                            get_location(destination_airport)).kilometers
+                        distance = geodesic(get_location(get_heliport2(current_country)),
+                                            get_location(destination_heliport)).kilometers
                         budget -= int(distance / 10) - int(distance / 10)
                         current_country = destination
-                        check_continents(get_continent(current_country))
+                        check_countries(current_country)
                         print(fullrefund_text[random.randint(0, 4)])
                         print(f"Your flight was {distance:.1f} kilometers and you had to pay {0} Co2")
 
             else:
 
-                current_airport = get_airport(current_country)
+                current_heliport = get_heliport2(current_country)
                 print(
-                    f"\nYou are currently in {current_country} at {current_airport} in {get_continent(current_country)}. Your current Co2 budget is {budget}. You have traveled to {7 - len(continents)}/7 continents.")
+                    f"\nYou are currently in {current_country} at {current_heliport} in {get_continent(current_country)}. Your current Co2 budget is {budget}. You have traveled to {49 - len(country_list)}/49 continents.")
 
                 destination = input("\nEnter the country you wish to travel to: ")
-                destination_airport = get_airport(destination)
+                destination_heliport = get_heliport2(destination)
 
-                while destination_airport is None:
+                while destination_heliport is None:
 
                     destination = input("\nEnter the country you wish to travel to: ")
-                    destination_airport = get_airport(destination)
+                    destination_heliport = get_heliport2(destination)
 
                 else:
                     number = random.randint(1, 6)
@@ -286,72 +303,72 @@ while rounds != 4:
                             is_alive = False
                             break
                         else:
-                            distance = geodesic(get_location(get_airport(current_country)),
-                                                get_location(destination_airport)).kilometers
+                            distance = geodesic(get_location(get_heliport2(current_country)),
+                                                get_location(destination_heliport)).kilometers
                             budget -= int(distance / 10)  # calculates Co2
                             current_country = destination  # updates the current location
-                            check_continents(get_continent(current_country))
+                            check_countries(current_country)
                             typewriter(neardeath_text[random.randint(0, 5)])
                             print(
                                 f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                     if number == 2:  # 2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
 
-                        distance = geodesic(get_location(get_airport(current_country)),
-                                            get_location(destination_airport)).kilometers
+                        distance = geodesic(get_location(get_heliport2(current_country)),
+                                            get_location(destination_heliport)).kilometers
                         budget -= int(distance / 10) * 2  # calculates Co2
                         current_country = destination  # updates the current location
-                        check_continents(get_continent(current_country))
+                        check_countries(current_country)
                         print("Your plane had to take an unexpected detour, doubling the cost of Co2.")
                         print(
                             f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10) * 2:.1f} Co2")
 
                     if number == 3:  # 3. Your planes GPS breaks and you end up at a random destination anywhere in the world.\n\
 
-                        current_country = get_country()
-                        distance = geodesic(get_location(get_airport(current_country)),
-                                            get_location(destination_airport)).kilometers
+                        current_country = get_country2()
+                        distance = geodesic(get_location(get_heliport2(current_country)),
+                                            get_location(destination_heliport)).kilometers
                         budget -= int(distance / 10)  # calculates Co2
-                        check_continents(get_continent(current_country))
+                        check_countries(current_country)
                         typewriter(randomcountry_text[random.randint(0, 3)])
                         print(
                             f"\nYou ended up in {current_country} in {get_continent(current_country)}. Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                     if number == 4:  # 4. Your plane had to return to the previous airport. Full amount of Co2 wasted
 
-                        recent_airport += current_airport
-                        destination_airport = get_airport(destination)
-                        distance = geodesic(get_location(get_airport(current_country)),
-                                            get_location(destination_airport)).kilometers
+                        recent_heliport += current_heliport
+                        destination_heliport = get_heliport2(destination)
+                        distance = geodesic(get_location(get_heliport2(current_country)),
+                                            get_location(destination_heliport)).kilometers
                         budget -= int(distance / 10)
                         print("Your plane had to return to the previous airport. Full amount of Co2 had to be paid.")
                         print(f"Your flight was {0} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                     if number == 5:  # 5. You get a 50% Co2 refund for that particular flight.\n\
 
-                        distance = geodesic(get_location(get_airport(current_country)),
-                                            get_location(destination_airport)).kilometers
+                        distance = geodesic(get_location(get_heliport2(current_country)),
+                                            get_location(destination_heliport)).kilometers
                         budget -= int(distance / 10) / 2
                         current_country = destination
-                        check_continents(get_continent(current_country))
+                        check_countries(current_country)
                         print("You got a good discount and only had to pay 50% of the original Co2 cost.")
                         print(
                             f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10) / 2:.1f} Co2")
 
                     if number == 6:  # 6. You get a full Co2 refund for that particular flight.\n\
-                        distance = geodesic(get_location(get_airport(current_country)),
-                                            get_location(destination_airport)).kilometers
+                        distance = geodesic(get_location(get_heliport2(current_country)),
+                                            get_location(destination_heliport)).kilometers
                         budget -= int(distance / 10) - int(distance / 10)
                         current_country = destination
-                        check_continents(get_continent(current_country))
+                        check_countries(get_continent(current_country))
                         print(fullrefund_text[random.randint(0, 4)])
                         print(f"Your flight was {distance:.1f} kilometers and you had to pay {0} Co2")
     rounds += 1
     if rounds == 2:
-        score1 = ((7 - len(continents)) * 100)
+        score1 = ((49 - len(country_list)) * 100)
         typewriter("\n\nGet ready for second round!\n\n")
     if rounds == 3:
-        score2 = ((7 - len(continents)) * 100)
+        score2 = ((49 - len(country_list)) * 100)
         typewriter("\n\nGet ready for third and last round!\n\n")
 else:
     typewriter(f"\n3 rounds played. Game over.\n Your score was: {(score1 + score2 + score)}")
