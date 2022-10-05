@@ -41,6 +41,8 @@ def credits_text():
     credits = "Designed and developed by Group 2\nKarin Domagalska\nJoona Rantala\nCan Erman\nNadim Ahmed"
     typewriter(credits)
     print("\n")
+    time.sleep(1)
+    print("\n")
 
 
 def easter_egg():
@@ -54,6 +56,7 @@ def easter_egg():
                     egg = input("1. To exit.\nyes or no: ")
                     if egg == "yes":
                         print(f"\n\n\n\U0001F49A\U0001F49APlease grade us 5/5\U0001F49A\U0001F49A\n\n\n")
+                        time.sleep(1)
                         break
                     elif egg == '1':
                         print("\n")
