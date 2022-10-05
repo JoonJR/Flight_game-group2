@@ -27,7 +27,7 @@ def flight_game_continent():
 
 
     def get_airport(country):
-        sql = "SELECT airport.name FROM airport, country WHERE airport.iso_country = country.iso_country and country.name ='" + country + "' and airport.type like '%airport' ORDER BY RAND() LIMIT 1"
+        sql = "SELECT airport.name, airport.ident FROM airport, country  WHERE country.iso_country = airport.iso_country and country.name ='" + country + "' AND airport.type = 'medium_airport' OR country.iso_country = airport.iso_country and country.name ='" + country + "' and airport.type = 'large_airport' OR country.iso_country = airport.iso_country and country.name ='" + country + "' and airport.type = 'small_airport' order by (case when airport.type = 'medium_airport' then 1 ELSE 2 END), RAND() LIMIT 1;"
         cursor = connection.cursor()
         cursor.execute(sql)
         result = cursor.fetchall()
@@ -35,16 +35,6 @@ def flight_game_continent():
             print('This country does not exist, try again.')
             return None
 
-        if cursor.rowcount > 0:
-            for row in result:
-                return row[0]
-
-
-    def get_airport2(country):
-        sql = "SELECT airport.name FROM airport, country WHERE airport.iso_country = country.iso_country and country.name ='" + country + "' and airport.type like '%airport'"
-        cursor = connection.cursor()
-        cursor.execute(sql)
-        result = cursor.fetchall()
         if cursor.rowcount > 0:
             for row in result:
                 return row[0]
