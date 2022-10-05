@@ -107,40 +107,37 @@ def check_countries():
 
 
 
-death_text = ["Your plane got struck by lightning and crashed on a remote island, you survived the crash and promptly died of dehydration. Game Over!",
-              "The pilot had one too many the night before and fell asleep at the wheel, nosediving the plane to your inevitable doom. Game Over!",
-              "You encountered some unexpected turbulence causing the pilot to lose complete control of the plane which hits the ground and explodes, but not before doing a cool flip. Game Over!",
-              "You poorly chose the meal with fish. You made it to your destination before dying of food poisoning in the airport bathroom. Game Over!",
-              "Someone's beloved pet cobra somehow escaped from its cage and found its way up your pants. Unfortunately you only realised this after it bit you. You took your last breath 15 minutes later. Game Over!"]
+death_text = ["Your helicopter got struck by lightning and crashed on a remote island, you survived the crash and promptly died of dehydration. Game Over!",
+              "The pilot had one too many the night before and fell asleep at the wheel, nosediving the helicopter to your inevitable doom. Game Over!",
+              "You encountered some unexpected turbulence causing the pilot to lose complete control of the helicopter which hits the ground and explodes, but not before doing a cool flip. Game Over!",
+              "Helicopter hit a building at night! Game over!",
+              "Some birds hit the propellers and pilot lost control! Game over!"]
 
-neardeath_text = ["You tripped while leaving the plane and proceeded to fall down the stairs, you thought it was all over\n before the real Tom of Finland grabbed your arm, saving your life.",
-                  "Some strong turbulence managed to open a loose baggage compartment. Someones weights fell out and almost hit you on the head.\nThankfully they hit the person next to you.",
-                  "You were offered a meal choice of either fish or meat, you were about to choose fish before remembering the golden rule. That was a close one.",
-                  "You somehow managed to flush the toilet without realising a part of your clothing was in there.\nYou got pulled back into the toilet but thankfully you had your second breakfast that morning.",
-                  "Your plane was about to take off and then you quickly remembered you didnt change your phones mode to flight mode.\nYou frantically make the change before takeoff saving the lives of many. A true hero.",
-                  "A bump in the sky during mealtime caused a swedish meatball to go down the wrong pipe. Thankfully a vet was nearby to help."]
+neardeath_text = ["You were drunk and high and tripped while leaving the helicopter and proceeded to fall down the stairs like a rockstar, you thought it was all over\n before the real Liam Gallagher grabbed your arm, saving your life.",
+                  "Your helicopter was about to take off and then you quickly remembered you didnt change your phones mode to flight mode.\nYou frantically make the change before takeoff saving the lives of many. A true hero.",
+                  "You forgot to close the door while helicopter takes off! Where is your mind!"]
 
 randomcountry_text = ["The pilot forgot to Never Eat Soggy Waffles and ended up going in the opposite direction.",
                       "Your pilot partied a bit too much the night before and didn't realise a change of schedule.",
-                      "Your plane got hijacked by honeymooners who could not afford the flights for their dream trip",
-                      "You accidentally got onto the wrong plane without anyone noticing"]
+                      "Your helicopter got hijacked by your crazy mate wants to hit it to World Trade Center",
+                      "You accidentally got onto the wrong helicopter without anyone noticing"]
 
 fullrefund_text = ["You found an old coupon for a free flight on the floor of a public toilet. All expenses paid.",
                    "Some rich guy ahead of you was feeling generous and paid for your flight. No Co2 spent.",
-                   "You forgot to buy the ticket and managed to sneak on the plane without getting caught. You even bumped yourself up to first class. No Co2 spent.",
-                   "You spoke to the pilot on your way onto the plane and it turns out hes your sisters cousins uncles brother. He let you on for free. No Co2 spent.",
-                   "You spoke to the pilot on your way onto the plane and it turns out hes your uncles sisters aunts nephew. He let you on for free. No Co2 spent."]
+                   "You forgot to buy the ticket and managed to sneak on the helicopter without getting caught. No Co2 spent.",
+                   "You spoke to the pilot on your way onto the helicopter and it turns out hes your sisters cousins uncles brother. He let you on for free. No Co2 spent.",
+                   "You spoke to the pilot on your way onto the helicopter and it turns out hes your uncles sisters aunts nephew. He let you on for free. No Co2 spent."]
 
 # list that stores all the continents
 player_name = input("Enter your name: ")
 
-rules = "Hello " + player_name + "! You have been given the mission of travelling to all 7 continents! You will be given a plane and a Co2 budget of 4000 which you cannot exceed. For every 1000km you use 100 Co2.\n\
-Your starting location will be random. From that point you can choose to fly to any country, however the airport will be random. \nYou have 3 rounds/lives, you collect 100 points for each continent per round. \n\
+rules = "Hello " + player_name + "! You have been given the mission of travelling to as many as heliports in Europe! You will be given a helicopter and a Co2 budget of 10.000 which you cannot exceed. For every 1000km you use 200 Co2.\n\
+Your starting location will be random. From that point you can choose to fly to any country, however the heliport will be random. \nYou have 3 rounds/lives, you collect 100 points for each continent per round. \n\
 Every time before you fly a dice of destiny will be rolled. The outcomes of the rolls are as follows:\n\
 6. You get a full Co2 refund for that particular flight.\n\
 5. You get a 50% Co2 refund for that particular flight.\n\
-4. Your plane had to return to the previous airport. Full amount of Co2 wasted for that trip.\n\
-3. Your planes GPS breaks and you end up at a random destination anywhere in the world.\n\
+4. Your plane had to return to the previous heliport. Full amount of Co2 wasted for that trip.\n\
+3. Your helicopter's GPS breaks and you end up at a random destination anywhere in the world.\n\
 2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
 1. Worst possible scenario. You have a 50% chance of dying.\nGood luck!\nps if there are errors its your fault :p\n"
 
