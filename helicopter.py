@@ -127,3 +127,4 @@ while rounds != 4:
                 print(
                     f"You are currently in {recent_country} at {recent_airport} in EU . Your current Co2 budget is {budget}. You have traveled to {7 - len(continents)}/7 continents.\n")
 
+d
