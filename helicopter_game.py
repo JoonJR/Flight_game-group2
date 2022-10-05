@@ -140,3 +140,7 @@ while rounds != 4:
                     f"You are currently in {recent_country} at {recent_heliport} in EU . Your current Co2 budget is {budget}. You have traveled to {7 - len(continents)}/7 continents.\n")
 
 
+
+("Albania","Andorra","Austria","Belarus","Belgium","Bosnia and Herzegovina","Bulgaria","Croatia","Czech Republic","Denmark","Estonia","Faroe Islands","Finland","France","Germany","Gibraltar","Greece","Guernsey","Hungary","Iceland","Ireland",
+"Isle of Man","Italy","Kosovo","Latvia","Liechtenstein","Lithuania","Luxembourg","Malta","Moldova","Monaco","Montenegro","Netherlands","North Macedonia","Norway","Poland","Portugal","Romania","Russia","San Marino","Serbia","Slovakia","Slovenia",
+"Spain","Sweden","Switzerland","Ukraine","United Kingdom","Vatican City")
