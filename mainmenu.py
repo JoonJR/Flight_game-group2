@@ -1,7 +1,9 @@
 from continent_game_function import *
 from Functions import *
+from ascii import *
 
 while True:
+    ascii_text(5)
     typewriter("Welcome to Green Wash Airlines\n")
     main_menu = int(input("1. Continent game \n2. Europe game \n3. Credits \n4. Something funny. \n5. Quit\n"))
     if main_menu == 1:
