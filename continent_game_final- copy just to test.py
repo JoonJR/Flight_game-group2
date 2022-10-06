@@ -27,7 +27,7 @@ def get_country():
 
 
 def get_airport_code(country):
-    sql = "SELECT airport.ident FROM airport, country  WHERE country.iso_country = airport.iso_country and country.name ='" + country + "' AND airport.type = 'medium_airport' OR country.iso_country = airport.iso_country and country.name ='" + country + "' and airport.type = 'large_airport' OR country.iso_country = airport.iso_country and country.name ='" + country + "' and airport.type = 'small_airport' order by (case when airport.type = 'medium_airport' then 1 ELSE 2 END), RAND() LIMIT 1;"
+    sql = "SELECT airport.ident FROM airport, country  WHERE country.iso_country = airport.iso_country and country.name ='" + country + "' AND airport.type = 'large_airport' OR country.iso_country = airport.iso_country and country.name ='" + country + "' and airport.type = 'medium_airport' OR country.iso_country = airport.iso_country and country.name ='" + country + "' and airport.type = 'small_airport' order by (case when airport.type = 'large_airport' then 1 ELSE 2 END) LIMIT 1"
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()
@@ -250,23 +250,21 @@ while rounds != 4:
                 while destination_airport is None:
 
                     destination = input("\nEnter the country you wish to travel to: ")
-                    destination_airport = get_airport_code(destination)
+                    #destination_airport = get_airport_code(destination)
 
                 else:
-                    #number = random.randint(1, 6)
-                    number = 1
+                    number = random.randint(1, 6)
                     if number == 1:  # 1. Worst possible scenario. You have a 50% chance of dying.
-                        # possible_death = random.randint(1, 2)
-                        # if possible_death == 1:
-                        #     deathpict = random.randint(0, 4)
-                        #     death = death_text[deathpict]
-                        #     typewriter(death)
-                        #     ascii_pictures(deathpict)
-                        #     is_alive = False
-                        #     break
-                        # else:
+                        possible_death = random.randint(1, 2)
+                        if possible_death == 1:
+                            deathpict = random.randint(0, 4)
+                            death = death_text[deathpict]
+                            typewriter(death)
+                            ascii_pictures(deathpict)
+                            is_alive = False
+                            break
+                        else:
                             distance = geodesic(get_location(current_airport), get_location(destination_airport)).kilometers
-                            current_airport_name =
                             budget -= int(distance / 10)  # calculates Co2
                             current_country = destination  # updates the current location
                             check_continents(get_continent(current_country))
