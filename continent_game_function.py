@@ -11,7 +11,7 @@ connection = mysql.connector.connect(
          port=3306,
          database='flight_game',
          user='root',
-         password='1',
+         password='root',
          autocommit=True
          )
 
@@ -148,7 +148,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 
         is_alive = True
         budget = 4000
-        continents = ["EU", "AF", "NA", "SA", "OC", "AS", "AN"]  # list that stores all the continents
+        continents = ["EU", "AF", "NA", "SA", "OC", "AN", "AS"]  # list that stores all the continents
         current_country = get_country()
         check_continents(get_continent(current_country))
         destination = None
