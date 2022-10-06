@@ -11,7 +11,7 @@ connection = mysql.connector.connect(
          port=3306,
          database='flight_game',
          user='root',
-         password='root',
+         password='1',
          autocommit=True
          )
 
@@ -254,18 +254,19 @@ while rounds != 4:
 
                 else:
                     #number = random.randint(1, 6)
-                    number = 3
+                    number = 1
                     if number == 1:  # 1. Worst possible scenario. You have a 50% chance of dying.
-                        possible_death = random.randint(1, 2)
-                        if possible_death == 1:
-                            deathpict = random.randint(0, 4)
-                            death = death_text[deathpict]
-                            typewriter(death)
-                            ascii_pictures(deathpict)
-                            is_alive = False
-                            break
-                        else:
-                            distance = geodesic(get_location(get_airport_code(current_country)), get_location(destination_airport)).kilometers
+                        # possible_death = random.randint(1, 2)
+                        # if possible_death == 1:
+                        #     deathpict = random.randint(0, 4)
+                        #     death = death_text[deathpict]
+                        #     typewriter(death)
+                        #     ascii_pictures(deathpict)
+                        #     is_alive = False
+                        #     break
+                        # else:
+                            distance = geodesic(get_location(current_airport), get_location(destination_airport)).kilometers
+                            current_airport_name =
                             budget -= int(distance / 10)  # calculates Co2
                             current_country = destination  # updates the current location
                             check_continents(get_continent(current_country))
@@ -274,7 +275,7 @@ while rounds != 4:
 
                     if number == 2:  # 2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
 
-                        distance = geodesic(get_location(get_airport_code(current_country)), get_location(destination_airport)).kilometers
+                        distance = geodesic(get_location(current_airport), get_location(destination_airport)).kilometers
                         budget -= int(distance / 10) * 2  # calculates Co2
                         current_country = destination  # updates the current location
                         check_continents(get_continent(current_country))
@@ -286,30 +287,31 @@ while rounds != 4:
                         random_country = get_country() #the new random country
                         first_location = current_airport # the location of the current airport youre starting from
                         new_destination = get_airport_code(random_country) # the location of the airport in a new random country
-                        print(current_country)
-                        print(current_airport)
-                        print(current_airport_name)
+                        # print(current_country)
+                        # print(current_airport)
+                        # print(current_airport_name)
                         distance = geodesic(get_location(first_location), get_location(new_destination)).kilometers
                         current_country = random_country
-                        print(get_airport_name(new_destination))
-                        print(current_country)
+                        # print(get_airport_name(new_destination))
+                        # print(current_country)
                         budget -= int(distance / 10)  # calculates Co2
                         check_continents(get_continent(current_country))
                         typewriter(randomcountry_text[random.randint(0, 3)])
-                        print(f"\nYou ended up in {current_country} in at {get_airport_name(new_destination)} {new_destination} {get_continent(current_country)}. Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
+                        print(f"\nYou ended up in {current_country} {new_destination} in {get_continent(current_country)}. Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                     if number == 4:  # 4. Your plane had to return to the previous airport. Full amount of Co2 wasted
 
                         recent_airport += current_airport
                         destination_airport = get_airport_code(destination)
-                        distance = geodesic(get_location(get_airport_code(current_country)), get_location(destination_airport)).kilometers
+                        print(destination_airport)
+                        distance = geodesic(get_location(current_airport), get_location(destination_airport)).kilometers
                         budget -= int(distance / 10)
                         print("Your plane had to return to the previous airport. Full amount of Co2 had to be paid.")
                         print(f"Your flight was {0} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                     if number == 5:  # 5. You get a 50% Co2 refund for that particular flight.\n\
 
-                        distance = geodesic(get_location(get_airport_code(current_country)), get_location(destination_airport)).kilometers
+                        distance = geodesic(get_location(current_airport), get_location(destination_airport)).kilometers
                         budget -= int(distance / 10) / 2
                         current_country = destination
                         check_continents(get_continent(current_country))
@@ -317,7 +319,7 @@ while rounds != 4:
                         print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10) / 2:.1f} Co2")
 
                     if number == 6:  # 6. You get a full Co2 refund for that particular flight.\n\
-                        distance = geodesic(get_location(get_airport_code(current_country)), get_location(destination_airport)).kilometers
+                        distance = geodesic(get_location(current_airport), get_location(destination_airport)).kilometers
                         budget -= int(distance / 10) - int(distance / 10)
                         current_country = destination
                         check_continents(get_continent(current_country))
