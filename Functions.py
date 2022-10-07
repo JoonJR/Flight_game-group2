@@ -3,13 +3,13 @@ import time
 import sys
 
 connection = mysql.connector.connect(
-         host='127.0.0.1',
-         port=3306,
-         database='flight_game',
-         user='root',
-         password='root',
-         autocommit=True
-         )
+    host='127.0.0.1',
+    port=3306,
+    database='flight_game',
+    user='root',
+    password='root',
+    autocommit=True
+)
 
 
 def typewriter(rules):
@@ -25,14 +25,16 @@ def typewriter(rules):
 
 def cheat_sheet():
     country_list = [['Andorra  ', 'Albania  ', 'Austria  ', 'Belgium  ', 'Slovakia ', 'Bulgaria ', 'Belarus  ',
-                    'Serbia   ', 'Sweden   ', 'Germany  ', 'Denmark  ', 'Estonia  ', 'Spain    ', 'Finland  ',
-                    'Romania  '], ['France     ', 'Ukraine    ', 'Guernsey   ', 'Gibraltar  ', 'Greece     ',
-                    'Croatia    ', 'Hungary    ', 'Ireland    ', 'Monaco     ', 'Iceland    ', 'Italy      ',
-                    'Jersey     ', 'Russia     ', 'Lithuania  ', 'Luxembourg '], ['Latvia      ', 'Isle of Man ',
-                    'Moldova     ', 'Montenegro  ', 'Kosovo      ', 'Malta  ', 'Netherlands  ', 'Norway  ', 'Poland  ',
-                    'Portugal  ', 'Faroe Islands  ', 'Switzerland  ', 'Liechtenstein  ', 'Czech Republic  ',
-                    'Slovenia  '], ['Bosnia and Herzegovina  ', 'San Marino  ', 'United Kingdom  ', 'Vatican City  ',
-                    'North Macedonia  ', '', '', '', '', '', '', '', '', '', '']]
+                     'Serbia   ', 'Sweden   ', 'Germany  ', 'Denmark  ', 'Estonia  ', 'Spain    '],
+                    ['France     ', 'Ukraine    ', 'Guernsey   ', 'Gibraltar  ', 'Greece     ', 'Croatia    ',
+                     'Hungary    ', 'Ireland    ', 'Monaco     ', 'Iceland    ', 'Italy      ', 'Jersey     ',
+                     'Russia     '], ['Latvia      ', 'Isle of Man ', 'Moldova     ', 'Montenegro  ', 'Kosovo      ',
+                                      'Malta       ', 'Netherlands ', 'Norway      ', 'Poland      ', 'Portugal    ',
+                                      'Finland     ',
+                                      'Switzerland  ', 'Liechtenstein  '],
+                    ['Bosnia and Herzegovina  ', 'San Marino  ', 'United Kingdom  '
+                        , 'Vatican City  ', 'North Macedonia  ', 'Romania  ', 'Luxembourg ', 'Czech Republic  ',
+                     'Lithuania  ', 'Slovenia  ', 'Faroe Islands  ', '', '', '', '']]
     print("\nCHEAT SHEET, MAKE SURE TEACHER DOESN'T SEE YOU!!!")
     for x, y, z, q in zip(*country_list):
         print(x, y, z, q)
@@ -79,5 +81,3 @@ def easter_egg():
             break
         elif egg == "no":
             print("Wrong answer.")
-
-
