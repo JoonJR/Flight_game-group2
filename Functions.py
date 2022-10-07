@@ -29,12 +29,10 @@ def cheat_sheet():
                     ['France     ', 'Ukraine    ', 'Guernsey   ', 'Gibraltar  ', 'Greece     ', 'Croatia    ',
                      'Hungary    ', 'Ireland    ', 'Monaco     ', 'Iceland    ', 'Italy      ', 'Jersey     ',
                      'Russia     '], ['Latvia      ', 'Isle of Man ', 'Moldova     ', 'Montenegro  ', 'Kosovo      ',
-                                      'Malta       ', 'Netherlands ', 'Norway      ', 'Poland      ', 'Portugal    ',
-                                      'Finland     ',
-                                      'Switzerland  ', 'Liechtenstein  '],
-                    ['Bosnia and Herzegovina  ', 'San Marino  ', 'United Kingdom  '
-                        , 'Vatican City  ', 'North Macedonia  ', 'Romania  ', 'Luxembourg ', 'Czech Republic  ',
-                     'Lithuania  ', 'Slovenia  ', 'Faroe Islands  ', '', '', '', '']]
+                     'Malta       ', 'Netherlands ', 'Norway      ', 'Poland      ', 'Portugal    ',
+                     'Finland     ', 'Switzerland  ', 'Liechtenstein  '], ['Bosnia and Herzegovina  ', 'San Marino  ',
+                     'United Kingdom  ', 'Vatican City  ', 'North Macedonia  ', 'Romania  ', 'Luxembourg ',
+                     'Czech Republic  ', 'Lithuania  ', 'Slovenia  ', 'Faroe Islands  ', '', '', '', '']]
     print("\nCHEAT SHEET, MAKE SURE TEACHER DOESN'T SEE YOU!!!")
     for x, y, z, q in zip(*country_list):
         print(x, y, z, q)
