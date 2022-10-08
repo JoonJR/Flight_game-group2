@@ -8,7 +8,7 @@ connection = mysql.connector.connect(
     port=3306,
     database='flight_game',
     user='root',
-    password='1',
+    password='root',
     autocommit=True
 )
 
@@ -40,6 +40,7 @@ def cheat_sheet():
 
 
 def credits_text():
+    ascii_text(6)
     credits = "Designed and developed by Group 2\nKarin Domagalska\nJoona Rantala\nCan Erman\nNadim Ahmed"
     typewriter(credits)
     print("\n")
@@ -48,38 +49,28 @@ def credits_text():
 
 
 def easter_egg():
+    print("There's nothing to do here.")
     while True:
-        egg = input("1. To exit.\nyes or no: ")
+        egg = input("Do you want to exit\nyes or no: ")
         if egg == "yes":
-            egg = input("1. To exit.\nyes or no: ")
+            egg = input("Wait! Are you sure?\nyes or no: ")
             if egg == "yes":
-                egg = input("1. To exit.\nyes or no: ")
+                egg = input("Think again!\nyes or no: ")
                 if egg == "yes":
-                    egg = input("1. To exit.\nyes or no: ")
+                    egg = input("Are you sure sure?\nyes or no: ")
                     if egg == "yes":
                         print(f"\n\n\n\U0001F49A\U0001F49APlease grade us 5/5\U0001F49A\U0001F49A\n\n\n")
                         time.sleep(1)
                         break
-                    elif egg == '1':
-                        print("\n")
-                        break
                     elif egg == "no":
-                        print("Wrong answer.")
-                elif egg == '1':
-                    print("\n")
-                    break
+                        print("Wrrrrrong answerrrrrr.")
                 elif egg == "no":
-                    print("Wrong answer.")
-            elif egg == '1':
-                print("\n")
-                break
+                    print("Ooops! Wrong answer")
             elif egg == "no":
-                print("Wrong answer.")
-        elif egg == '1':
-            print("\n")
-            break
+                print("Wrong answer hehe.")
         elif egg == "no":
-            print("Wrong answer.")
+            print("Hmmm think again.")
+
 
 def logo():
     ascii_pictures(6)
