@@ -27,6 +27,7 @@ while True:
             if choice == "Y" or choice == "y":
                 logo()
                 typewriter("\nWelcome to Sus-PLANE-ability\n")
+                break
             elif choice == "N" or choice == "n":
                 credits_text()
             else:
