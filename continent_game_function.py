@@ -1,6 +1,7 @@
 from geopy.distance import geodesic
 import random
 from Functions import *
+import os
 # import mysql.connector
 # import time
 # import sys
@@ -10,7 +11,7 @@ connection = mysql.connector.connect(
          port=3306,
          database='flight_game',
          user='root',
-         password='root',
+         password='1',
          autocommit=True
          )
 
@@ -265,10 +266,8 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 
                     else:
                         number = random.randint(1, 6)
-                        number = 1
                         if number == 1:  # 1. Worst possible scenario. You have a 50% chance of dying.
                             possible_death = random.randint(1, 2)
-                            possible_death = 1
                             if possible_death == 1:
                                 deathpict = random.randint(0, 4)
                                 death = death_text[deathpict]
@@ -332,11 +331,11 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                             typewriter(f"\nYour flight was {distance:.1f} kilometers and you had to pay {0} Co2\n")
         rounds += 1
         if rounds == 2:
-            score1 = ((7 - len(continents)) * 100)
+            score1 = ((len(continents)) * 100)
             typewriter("\n\n✧✧✧✧✧✧✧✧✧✧✧✧✧✧Get ready for second round!✧✧✧✧✧✧✧✧✧✧✧✧✧✧✧\n\n")
 
         if rounds == 3:
-            score2 = ((7 - len(continents)) * 100)
+            score2 = ((len(continents)) * 100)
             typewriter("\n\n✧✧✧✧✧✧✧✧✧✧✧✧Get ready for third and last round!✧✧✧✧✧✧✧✧✧✧✧✧\n\n")
     else:
         ascii_text(4)
