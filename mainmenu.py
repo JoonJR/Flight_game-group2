@@ -14,13 +14,15 @@ while True:
         flight_game_continent()
     elif main_menu == "2":
         while True:
-            eu_menu = int(input("\nEU game\n1. Start \n2. Country cheat sheet. \n3. Back \n>>>"))
+            eu_menu = input("\nEU game\n1. Start \n2. Country cheat sheet. \n3. Back \n>>>")
             if eu_menu == "1":
                 print("function here")
             elif eu_menu == "2":
                 cheat_sheet()
             elif eu_menu == "3":
-                continue
+                break
+            else:
+                print("Enter a valid input")
     elif main_menu == "3":
         credits_text()
         while True:
