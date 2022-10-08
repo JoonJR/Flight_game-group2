@@ -51,25 +51,25 @@ def credits_text():
 def easter_egg():
     print("There's nothing to do here.")
     while True:
-        egg = input("Do you want to exit\nyes or no: ")
-        if egg == "yes":
-            egg = input("Wait! Are you sure?\nyes or no: ")
-            if egg == "yes":
-                egg = input("Think again!\nyes or no: ")
-                if egg == "yes":
-                    egg = input("Are you sure sure?\nyes or no: ")
-                    if egg == "yes":
+        egg = input("Do you want to exit\nYes or No: ")
+        if egg == "yes" or egg == "Yes":
+            egg = input("Wait! Are you sure?\nYes or No:: ")
+            if egg == "yes" or egg == "Yes":
+                egg = input("Think again!\nYes or No:: ")
+                if egg == "yes" or egg == "Yes":
+                    egg = input("Are you sure sure?\nYes or No: ")
+                    if egg == "yes" or egg == "Yes":
                         print(f"\n\n\n\U0001F49A\U0001F49APlease grade us 5/5\U0001F49A\U0001F49A\n\n\n")
                         time.sleep(1)
                         break
-                    elif egg == "no":
+                    elif egg == "no" or egg == "No":
                         print("Wrrrrrong answerrrrrr.")
-                elif egg == "no":
+                elif egg == "no" or egg == "No":
                     print("Ooops! Wrong answer")
-            elif egg == "no":
+            elif egg == "no" or egg == "No":
                 print("Wrong answer hehe.")
-        elif egg == "no":
-            print("Hmmm think again.")
+        elif egg == "no" or egg == "No":
+            print("Hmmm.. think again.")
 
 
 def logo():

@@ -121,10 +121,9 @@ def flight_game_continent():
                        "You spoke to the pilot on your way onto the plane and it turns out hes your sisters cousins uncles brother. He let you on for free. No Co2 spent.",
                        "You spoke to the pilot on your way onto the plane and it turns out hes your uncles sisters aunts nephew. He let you on for free. No Co2 spent."]
 
-    # list that stores all the continents
-    ascii_pictures(5)
+    #ascii_pictures(5)
     ascii_text(3)
-    ascii_pictures(5)
+    #ascii_pictures(5)
     player_name = input("Enter your name: ")
     ascii_pictures(7)
     rules = "Hello " + player_name + "! You have been given the mission of travelling to all 7 continents! You will be given a plane and a Co2 budget of 4000 which you cannot exceed. For every 1000km you use 100 Co2.\n\
@@ -137,7 +136,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
     2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
     1. Worst possible scenario. You have a 50% chance of dying.\nGood luck!\nps if there are errors its your fault :p\n"
 
-    #typewriter(rules)
+    typewriter(rules)
     ascii_pictures(7)
     rounds = 1
     score = 0
@@ -357,7 +356,8 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
         if decision == "Y" or decision == 'y':
             flight_game_continent()
         if decision == "N" or decision == 'n':
-            typewriter("Flying back to the main menu. Please fasten your seatbelt...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+            typewriter("Flying back to the main menu. Please fasten your seatbelt...")
+            time.sleep(1)
             os.system('cls') # opens main menu in a new page (clears everything before that) but doesnt work in pycharm only if its open as a .py file
             logo()
             return None
