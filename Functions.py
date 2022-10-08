@@ -1,6 +1,7 @@
 import mysql.connector
 import time
 import sys
+from ascii import *
 
 connection = mysql.connector.connect(
     host='127.0.0.1',
@@ -79,3 +80,8 @@ def easter_egg():
             break
         elif egg == "no":
             print("Wrong answer.")
+
+def logo():
+    ascii_pictures(6)
+    ascii_text(5)
+    ascii_pictures(6)

@@ -1,9 +1,10 @@
-import mysql.connector
 from geopy.distance import geodesic
 import random
-import time
-import sys
-from ascii import *
+from Functions import *
+# import mysql.connector
+# import time
+# import sys
+# from ascii import *
 connection = mysql.connector.connect(
          host='127.0.0.1',
          port=3306,
@@ -133,7 +134,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
     2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
     1. Worst possible scenario. You have a 50% chance of dying.\nGood luck!\nps if there are errors its your fault :p\n"
 
-    typewriter(rules)
+    #typewriter(rules)
     ascii_pictures(7)
     rounds = 1
     score = 0
@@ -264,8 +265,10 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 
                     else:
                         number = random.randint(1, 6)
+                        number = 1
                         if number == 1:  # 1. Worst possible scenario. You have a 50% chance of dying.
                             possible_death = random.randint(1, 2)
+                            possible_death = 1
                             if possible_death == 1:
                                 deathpict = random.randint(0, 4)
                                 death = death_text[deathpict]
@@ -348,8 +351,15 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
         elif final_score < 300:
             print("\nDid you even try..?")
 
-    decision = input("\nWould you like to play again?(Y/N) ")
-    if decision == "Y" or decision == 'y':
-        flight_game_continent()
-    if decision == "N" or decision == 'n':
-        typewriter("Flying back to the main menu.Please fasten your seatbelt...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+    while True:
+        decision = input("\nWould you like to play again?(Y/N) ")
+        if decision == "Y" or decision == 'y':
+            flight_game_continent()
+        if decision == "N" or decision == 'n':
+            typewriter("Flying back to the main menu. Please fasten your seatbelt...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+            logo()
+            return None
+        else:
+            typewriter("Invalid input!")
+
+# flight_game_continent()
