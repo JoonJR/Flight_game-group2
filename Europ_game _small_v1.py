@@ -4,7 +4,7 @@ from geopy.distance import geodesic
 import random
 import time
 from time import sleep
-import sys
+
 connection = mysql.connector.connect(
          host='127.0.0.1',
          port=3306,
