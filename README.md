@@ -5,7 +5,7 @@
 * Functional Requirements
 * Quality Requirements
 # Introduction
-This documentation specifies the preliminary stages of design, functionality, gameplay of the game with the provisional title “SUS(PLANE)ABILITY”. Flight game is computer-based game, developed by the “Group-2”. It is based on elements discussed in various meetings held since 26th of September 2022.
+This documentation specifies the preliminary stages of design, functionality, gameplay of the game with the provisional title “SUS(PLANE)ABILITY”. This is computer-based game, developed by the “Group-2”. It is based on elements discussed in various meetings held since 26th of September 2022.
 
 The study is dedicated to game prototype development. A prototype is an incomplete version of an idea. A prototype contains only a part of the designed functionality. A prototype may be completely different from the final product. Using a prototype, a designer can get early feedback from potential users. It allows estimating the validity of the initial idea.
 
