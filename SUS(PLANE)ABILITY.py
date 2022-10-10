@@ -1,6 +1,5 @@
-from continent_game_function import *
-from Functions import *
-from EU_game_function import *
+from Games.continent_game_function import *
+from Games.EU_game_function import *
 import os
 
 logo()

@@ -1,7 +1,7 @@
 import mysql.connector
 import time
 import sys
-from ascii import *
+from Functions.ascii import *
 
 connection = mysql.connector.connect(
     host='127.0.0.1',

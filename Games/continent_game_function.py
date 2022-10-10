@@ -1,6 +1,6 @@
 from geopy.distance import geodesic
 import random
-from Functions import *
+from Functions.Functions import *
 import os
 # import mysql.connector
 # import time

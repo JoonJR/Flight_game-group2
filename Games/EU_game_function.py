@@ -1,11 +1,7 @@
-import mysql.connector
-import ascii
 from geopy.distance import geodesic
 import random
-import time
-import sys
 import os
-from Functions import *
+from Functions.Functions import *
 connection = mysql.connector.connect(
          host='127.0.0.1',
          port=3306,
