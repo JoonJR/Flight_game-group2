@@ -9,13 +9,20 @@ This documentation specifies the preliminary stages of design, functionality, ga
 
 The study is dedicated to game prototype development. A prototype is an incomplete version of an idea. A prototype contains only a part of the designed functionality. A prototype may be completely different from the final product. Using a prototype, a designer can get early feedback from potential users. It allows estimating the validity of the initial idea.
 
-Flight game is the prototype of the final flight simulator game. This prototype is the non-graphical version of game. Players will play this game by giving input using keyboard. 
+SUS(PLANE)ABILITY is the prototype of the final flight simulator game. This prototype is the non-graphical version of game. Players will play this game by giving input using keyboard. 
 
 Games are the place to try new ideas and to experiment with established theories. In the Flight game project programmed by python and used PyCharm IDE to execute the programme.
 # Scop
 This document is intended to read by programmers, supervisors, teachers and other stakeholders. This document contains brief description of the of technical and non-technical aspects of the of Flight game project. This can be used as the road map for the final project.
 # Game Concept
-Flight game is a flight simulation game. Players will play this game to reach the goal and the goal is to fly as many continents they can travel with the budgeted co2. There is seven continents available in the game.
+SUS(PLANE)ABILITY is a flight simulation game. 
+
+Players will play this game to reach the goal and the goal is to fly as many continents they can travel with the budgeted co2. There is 7 continents available in the game.
+
+OR
+
+Players will play this game to reach the goal and the goal is to fly as many countries they can travel with the budgeted co2. There is 50 countries available in the game.
+
 # Vision
 Vision
 The purpose of the game is to make an interactive gaming experience for the player and game as per the requirement of project work of software 1.
@@ -23,8 +30,11 @@ Player will have two game option to choose from the main menu. It is possible to
 
 Continent game:
 
-Player will start and put his/her name, Player will be assigned a random country and random airport and a budget of Co2. Then player will enter the name of the destination country. Here is some surprise for the player by rolling the dice and give the advantages or disadvantages according to the pre-decided game functions. Player will continue with the game until the budget is get to the end or he/she travelled countries from seven continents. Player will have three round to play the game and at the end know the score.
+Player will start and put his/her name, Player will be assigned a random country and random airport and a budget of Co2. Then player will enter the name of the destination country. Here is some surprise for the player by rolling the dice and give the advantages or disadvantages according to the pre-decided game functions. Player will continue with the game until the budget is get to the end or he/she travelled countries from all 7 continents. Player will have three round to play the game and at the end know the score.
 
+EU Game:
+
+Player will start and put his/her name, Player will be assigned a random country and random heliport and a budget of Co2. Then player will enter the name of the destination country. Here is some surprise for the player by rolling the dice and give the advantages or disadvantages according to the pre-decided game functions. Player will continue with the game until the budget is get to the end or he/she travelled countries from all 50 countries. Player will have three round to play the game and at the end know the score.
 # Game Procedure
 ![img_1.png](img_1.png)
 # Functional requirements (CONTINENT GAME)
