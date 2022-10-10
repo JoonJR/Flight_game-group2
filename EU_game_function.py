@@ -101,7 +101,7 @@ def eugame():
     player_name = input("\nEnter your name: ")
 
     rules = f"Hello " + player_name + "! You have been given the mission of travelling to all 50 EU-countries! You will be" \
-    " given a fancy helicopter with a pilot and a Co2 budget of 10000 which you cannot exceed. For every 1000km you use 200 Co2.\n\
+    " given a fancy helicopter with a pilot and a Co2 budget of 10000 which you cannot exceed. For every 1000km you use 300 Co2.\n\
     Your starting location will be random. From that point you can choose to fly to any country, however the heliports will be random. \n\
     Every time before you fly a dice of destiny will be rolled. The outcomes of the rolls are as follows:\n\
     6. You get a full Co2 refund for that particular flight.\n\
@@ -138,7 +138,6 @@ def eugame():
             if recent_heliport != "":
                 print(f"You are currently in {recent_country} at {get_heliport_name(recent_heliport)}. Your current Co2 budget is {budget}. "
                       f"You have travelled to {len(countries)}/50 countries.\n")
-                score = len(countries * 100)
                 recent_heliport = ""
                 destination = input("\nEnter the country you wish to travel to: ")
                 destination_heliport = get_heliport_code(destination)
@@ -161,24 +160,24 @@ def eugame():
                             distance = geodesic(get_location(get_heliport_code(current_country)),
                                                 get_location(destination_heliport)).kilometers
 
-                            budget -= int(distance / 5)  # calculates Co2
+                            budget -= int(distance / 3.3)  # calculates Co2
                             current_country = destination  # updates the current location
                             if current_country not in countries:
                                 countries.append(current_country)  # appends country to the list
                             typewriter(neardeath_text[random.randint(0, 5)])
                             print(
-                                f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 5):.1f} Co2")
+                                f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 3.3):.1f} Co2")
 
                     if number == 2:
 
                         distance = geodesic(get_location(get_heliport_code(current_country)),
                                             get_location(destination_heliport)).kilometers
-                        budget -= int(distance / 5) * 2  # calculates Co2
+                        budget -= int(distance / 3.3) * 2  # calculates Co2
                         current_country = destination  # updates the current location
                         if current_country not in countries:
                             countries.append(current_country)  # appends country to the list
                         print("Your helicopter had to take an unexpected detour, doubling the cost of Co2.")
-                        print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 5) * 2:.1f} Co2")
+                        print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 3.3) * 2:.1f} Co2")
 
                     if number == 3:
 
@@ -187,11 +186,11 @@ def eugame():
                             countries.append(current_country)  # appends country to the list
                         distance = geodesic(get_location(get_heliport_code(current_country)),
                                             get_location(destination_heliport)).kilometers
-                        budget -= int(distance / 5)  # calculates Co2
+                        budget -= int(distance / 3.3)  # calculates Co2
                         typewriter(randomcountry_text[random.randint(0, 3)])
                         print(
                             f"\nYou ended up in {current_country}, {current_heliport}. Your flight was {distance:.1f}"
-                            f" kilometers and you had to pay {(distance / 5):.1f} Co2")
+                            f" kilometers and you had to pay {(distance / 3.3):.1f} Co2")
 
                     if number == 4:
 
@@ -199,25 +198,25 @@ def eugame():
                         destination_heliport = get_heliport_code(destination)
                         distance = geodesic(get_location(get_heliport_code(current_country)),
                                             get_location(destination_heliport)).kilometers
-                        budget -= int(distance / 5)
+                        budget -= int(distance / 3.3)
                         print("Your helicopter had to return to the previous heliport. Full amount of Co2 had to be paid.")
-                        print(f"Your flight was {0} kilometers and you had to pay {(distance / 5):.1f} Co2")
+                        print(f"Your flight was {0} kilometers and you had to pay {(distance / 3.3):.1f} Co2")
 
                     if number == 5:
 
                         distance = geodesic(get_location(get_heliport_code(current_country)),
                                             get_location(destination_heliport)).kilometers
-                        budget -= int(distance / 5) / 2
+                        budget -= int(distance / 3.3) / 2
                         current_country = destination
                         if current_country not in countries:
                             countries.append(current_country)  # appends country to the list
                         print("You got a good discount and only had to pay 50% of the original Co2 cost.")
-                        print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 5) / 2:.1f} Co2")
+                        print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 3.3) / 2:.1f} Co2")
 
                     if number == 6:
                         distance = geodesic(get_location(get_heliport_code(current_country)),
                                             get_location(destination_heliport)).kilometers
-                        budget -= int(distance / 5) - int(distance / 5)
+                        budget -= int(distance / 3.3) - int(distance / 3.3)
                         current_country = destination
                         if current_country not in countries:
                             countries.append(current_country)  # appends country to the list
@@ -251,24 +250,24 @@ def eugame():
                         else:
                             distance = geodesic(get_location(get_heliport_code(current_country)),
                                                 get_location(destination_heliport)).kilometers
-                            budget -= int(distance / 5)  # calculates Co2
+                            budget -= int(distance / 3.3)  # calculates Co2
                             current_country = destination  # updates the current location
                             if current_country not in countries:
                                 countries.append(current_country)  # appends country to the list
                             typewriter(neardeath_text[random.randint(0, 5)])
                             print(
-                                f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 5):.1f} Co2")
+                                f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 3.3):.1f} Co2")
 
                     if number == 2:  # 2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
 
                         distance = geodesic(get_location(get_heliport_code(current_country)),
                                             get_location(destination_heliport)).kilometers
-                        budget -= int(distance / 5) * 2  # calculates Co2
+                        budget -= int(distance / 3.3) * 2  # calculates Co2
                         current_country = destination  # updates the current location
                         if current_country not in countries:
                             countries.append(current_country)  # appends country to the list
                         print("Your helicopter had to take an unexpected detour, doubling the cost of Co2.")
-                        print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 5) * 2:.1f} Co2")
+                        print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 3.3) * 2:.1f} Co2")
 
                     if number == 3:
 
@@ -277,11 +276,11 @@ def eugame():
                             countries.append(current_country)  # appends country to the list
                         distance = geodesic(get_location(get_heliport_code(current_country)),
                                             get_location(destination_heliport)).kilometers
-                        budget -= int(distance / 5)  # calculates Co2
+                        budget -= int(distance / 3.3)  # calculates Co2
                         typewriter(randomcountry_text[random.randint(0, 3)])
                         print(
                             f"\nYou ended up in {current_country}, {current_heliport}. Your flight was {distance:.1f}"
-                            f" kilometers and you had to pay {(distance / 5):.1f} Co2")
+                            f" kilometers and you had to pay {(distance / 3.3):.1f} Co2")
 
                     if number == 4:
 
@@ -289,25 +288,25 @@ def eugame():
                         destination_heliport = get_heliport_code(destination)
                         distance = geodesic(get_location(get_heliport_code(current_country)),
                                             get_location(destination_heliport)).kilometers
-                        budget -= int(distance / 5)
+                        budget -= int(distance / 3.3)
                         print("Your helicopter had to return to the previous heliport. Full amount of Co2 had to be paid.")
-                        print(f"Your flight was {0} kilometers and you had to pay {(distance / 5):.1f} Co2")
+                        print(f"Your flight was {0} kilometers and you had to pay {(distance / 3.3):.1f} Co2")
 
                     if number == 5:  # 5. You get a 50% Co2 refund for that particular flight.\n\
 
                         distance = geodesic(get_location(get_heliport_code(current_country)),
                                             get_location(destination_heliport)).kilometers
-                        budget -= int(distance / 5) / 2
+                        budget -= int(distance / 3.3) / 2
                         current_country = destination
                         if current_country not in countries:
                             countries.append(current_country)  # appends country to the list
                         print("You got a good discount and only had to pay 50% of the original Co2 cost.")
-                        print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 5) / 2:.1f} Co2")
+                        print(f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 3.3) / 2:.1f} Co2")
 
                     if number == 6:  # 6. You get a full Co2 refund for that particular flight.\n\
                         distance = geodesic(get_location(get_heliport_code(current_country)),
                                             get_location(destination_heliport)).kilometers
-                        budget -= int(distance / 5) - int(distance / 5)
+                        budget -= int(distance / 3.3) - int(distance / 3.3)
                         current_country = destination
                         if current_country not in countries:
                             countries.append(current_country)  # appends country to the list
