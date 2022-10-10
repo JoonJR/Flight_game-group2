@@ -27,7 +27,7 @@ Player will start and put his/her name, Player will be assigned a random country
 
 # Game Procedure
 ![img_1.png](img_1.png)
-# Functional requirements 
+# Functional requirements (SUS(PLAIN)ABILITY GAME)
 •	Player can choose the game want to play from the menu
 
 •	Player can input the name
@@ -36,7 +36,7 @@ Player will start and put his/her name, Player will be assigned a random country
 
 •	After the three round players will have the option to play new game or to go to the main menu
 
-# Quality requirements
+# Quality requirements (SUS(PLAIN)ABILITY GAME)
 •	Screen will show the name of the player
 
 •	Player will get a random country and airport at the beginning
@@ -49,3 +49,24 @@ Player will start and put his/her name, Player will be assigned a random country
 
 • After third round final score will be displayed
 
+# Functional requirements (EU GAME)
+•	Player can choose the game want to play from the menu
+
+•	Player can input the name
+
+•	Player can choose the destination country
+
+•   There is only one round and the player has the option to play new game or to go to the main menu
+
+# Quality requirements (EU GAME)
+•	Screen will show the name of the player
+
+•	Player will get a random country and heliport at the beginning
+
+•	Countries will be fetched and showed on the screen 
+
+•	Fetching the data from the database should not take more than two seconds
+
+•	After each round score will be added to the “score” variable but will not show to the player
+
+• After one round final score will be displayed
