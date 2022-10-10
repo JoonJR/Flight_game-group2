@@ -27,7 +27,7 @@ Player will start and put his/her name, Player will be assigned a random country
 
 # Game Procedure
 ![img_1.png](img_1.png)
-# Functional requirements (SUS(PLAIN)ABILITY GAME)
+# Functional requirements (CONTINENT GAME)
 •	Player can choose the game want to play from the menu
 
 •	Player can input the name
@@ -36,7 +36,7 @@ Player will start and put his/her name, Player will be assigned a random country
 
 •	After the three round players will have the option to play new game or to go to the main menu
 
-# Quality requirements (SUS(PLAIN)ABILITY GAME)
+# Quality requirements (CONTINENT GAME)
 •	Screen will show the name of the player
 
 •	Player will get a random country and airport at the beginning
