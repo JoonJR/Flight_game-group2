@@ -25,6 +25,8 @@ Continent game:
 
 Player will start and put his/her name, Player will be assigned a random country and random airport and a budget of Co2. Then player will enter the name of the destination country. Here is some surprise for the player by rolling the dice and give the advantages or disadvantages according to the pre-decided game functions. Player will continue with the game until the budget is get to the end or he/she travelled countries from seven continents. Player will have three round to play the game and at the end know the score.
 
+# Game Procedure
+![img_1.png](img_1.png)
 # Functional requirements 
 •	Player can choose the game want to play from the menu
 
@@ -46,3 +48,4 @@ Player will start and put his/her name, Player will be assigned a random country
 •	After each round score will be added to the “score” variable but will not show to the player
 
 • After third round final score will be displayed
+
