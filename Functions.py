@@ -74,5 +74,5 @@ def easter_egg():
 
 def logo():
     ascii_pictures(6)
-    ascii_text(5)
+    ascii_text(8)
     ascii_pictures(6)

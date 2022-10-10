@@ -308,8 +308,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                         if number == 4:  # 4. Your plane had to return to the previous airport. Full amount of Co2 wasted
 
                             recent_airport += current_airport
-                            distance = geodesic(get_location(current_airport),
-                                                get_location(destination_airport)).kilometers
+                            distance = geodesic(get_location(current_airport),get_location(destination_airport)).kilometers
                             budget -= int(distance / 10)
                             typewriter("Your plane had to return to the previous airport. Full amount of Co2 had to be paid.")
                             typewriter(f"\nYour flight was {0} kilometers and you had to pay {(distance / 10):.1f} Co2\n")
