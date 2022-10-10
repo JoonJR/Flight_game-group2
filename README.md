@@ -12,7 +12,7 @@ The study is dedicated to game prototype development. A prototype is an incomple
 SUS(PLANE)ABILITY is the prototype of the final flight simulator game. This prototype is the non-graphical version of game. Players will play this game by giving input using keyboard. 
 
 Games are the place to try new ideas and to experiment with established theories. In the Flight game project programmed by python and used PyCharm IDE to execute the programme.
-# Scop
+# Scope
 This document is intended to read by programmers, supervisors, teachers and other stakeholders. This document contains brief description of the of technical and non-technical aspects of the of Flight game project. This can be used as the road map for the final project.
 # Game Concept
 SUS(PLANE)ABILITY is a flight simulation game. 
