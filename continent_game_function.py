@@ -363,5 +363,3 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
             return None
         else:
             typewriter("Invalid input!")
-
-# flight_game_continent()
