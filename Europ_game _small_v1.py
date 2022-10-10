@@ -201,7 +201,7 @@ while round !=2:
 
                 current_heliport = get_heliport(current_country)
                 print(
-                    f"Your are currently in {recent_country} at {get_heliport(recent_country)} in {get_continent(recent_country)} whetar is\n{weather[random.randint(1, 5)]}. "
+                    f"Your are currently in {current_country} at {get_heliport(current_country)} in {get_continent(current_country)} whetar is\n{weather[random.randint(1, 5)]}. "
                     f"\nYour budget is {budget} & you have to travel 3 country in minimum cost\n Every time it will cost €200 to travel. ")
                 destination = input("Enter the country you wish to travel to: ")
                 destination_heliport = get_heliport(destination)
