@@ -1,5 +1,6 @@
 from continent_game_function import *
 from Functions import *
+from EU_game_function import *
 import os
 
 logo()
@@ -20,7 +21,7 @@ while True:
                 typewriter("Flying to the EU Game. Please fasten your seatbelt...")
                 time.sleep(1)
                 os.system('cls')
-                print("function here")
+                eugame()
             elif eu_menu == "2":
                 cheat_sheet()
             elif eu_menu == "3":

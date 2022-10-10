@@ -1,10 +1,11 @@
 import mysql.connector
-import geopy
+import ascii
 from geopy.distance import geodesic
 import random
 import time
-from time import sleep
 import sys
+import os
+from Functions import *
 connection = mysql.connector.connect(
          host='127.0.0.1',
          port=3306,
@@ -97,7 +98,7 @@ def eugame():
                        "You spoke to the pilot on your way onto the helicopter and it turns out hes your uncles sisters aunts nephew. He let you on for free. No Co2 spent."]
 
 
-    player_name = input("Enter your name: ")
+    player_name = input("\nEnter your name: ")
 
     rules = f"Hello " + player_name + "! You have been given the mission of travelling to all 50 EU-countries! You will be" \
     " given a fancy helicopter with a pilot and a Co2 budget of 10000 which you cannot exceed. For every 1000km you use 200 Co2.\n\
@@ -126,12 +127,12 @@ def eugame():
             print("You ran out of Co2 before reaching all the continents. Game Over!")
             is_alive = False  # you lost
             break
-        if len(countries) == 50:
-            print("You won! You made it to all 50 countries without exceeding your budget!")
-            is_alive = False  # you won! the game is finished
 
         while budget > 0 and is_alive:
 
+            if len(countries) == 50:
+                print("You won! You made it to all 50 countries without exceeding your budget!")
+                is_alive = False  # you won! the game is finished
             recent_country = current_country
 
             if recent_heliport != "":
@@ -316,3 +317,16 @@ def eugame():
 
     else:
         typewriter(f"\nYour score was: {len(countries) * 100}")
+
+    while True:
+        decision = input("\nWould you like to play again?(Y/N) ")
+        if decision == "Y" or decision == 'y':
+            eugame()
+        if decision == "N" or decision == 'n':
+            typewriter("Flying back to the main menu. Please fasten your seatbelt...")
+            time.sleep(1)
+            os.system('cls') # opens main menu in a new page (clears everything before that) but doesnt work in pycharm only if its open as a .py file
+            logo()
+            return None
+        else:
+            typewriter("Invalid input!")
