@@ -321,6 +321,7 @@ def eugame():
     while True:
         decision = input("\nWould you like to play again?(Y/N) ")
         if decision == "Y" or decision == 'y':
+            os.system('cls')
             eugame()
         if decision == "N" or decision == 'n':
             typewriter("Flying back to the main menu. Please fasten your seatbelt...")
