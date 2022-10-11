@@ -16,7 +16,7 @@ def eugame():
     ascii_text(7)
     player_name = input("\nEnter your name: ")
 
-    rules = f"Hello " + player_name + "! You have been given the mission of travelling to all 50 EU-countries! You will be" \
+    rules = f"Hello " + player_name + "! You have been given the mission of travelling to all 50 countries in continent Europe! You will be" \
     " given a fancy helicopter with a pilot and a Co2 budget of 10000 which you cannot exceed.\nFor every 1000km you use 300 Co2. Your starting location will be random. From that point you can choose to fly to any country, however the heliports will be random.\n" \
     "Every time before you fly a dice of destiny will be rolled. The outcomes of the rolls are as follows:\n\
     6. You get a full Co2 refund for that particular flight.\n\
@@ -112,7 +112,7 @@ def eugame():
                                             get_location(destination_heliport)).kilometers
                         budget -= int(distance / 3.3)  # calculates Co2
                         typewriter(randomcountry_text[random.randint(0, 3)])
-                        typewriter(f"\nYou ended up in {current_country}, {current_heliport}.\nYour flight was {distance:.1f}"
+                        typewriter(f"\n You ended up in {current_country}, {current_heliport}.\nYour flight was {distance:.1f}"
                                    f"kilometers and you had to pay {(distance / 3.3):.1f} Co2\n")
 
                     if number == 4:
