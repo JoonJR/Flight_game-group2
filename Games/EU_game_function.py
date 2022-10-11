@@ -7,7 +7,7 @@ connection = mysql.connector.connect(
          port=3306,
          database='flight_game',
          user='root',
-         password='root',
+         password='1',
          autocommit=True
          )
 
@@ -54,7 +54,7 @@ def eugame():
 
 
             if recent_heliport != "":
-                print(f"\nYou are currently in {recent_country} at {get_heliport_name(recent_heliport)}. Your current Co2 budget is {budget}. "
+                print(f"\nYou are currently in {recent_country.capitalize()} at {get_heliport_name(recent_heliport)}. Your current Co2 budget is {budget}. "
                       f"You have travelled to {len(countries)}/50 countries.")
                 recent_heliport = ""
                 destination = input("Enter the country you wish to travel to: ")
@@ -157,7 +157,7 @@ def eugame():
 
                 current_heliport = get_heliport_code(current_country)
                 current_heliport_name = get_heliport_name(current_heliport)
-                typewriter(f"\nYou are currently in {current_country} at {current_heliport_name}. Your current Co2 budget is {budget}. "
+                typewriter(f"\nYou are currently in {current_country.capitalize()} at {current_heliport_name}. Your current Co2 budget is {budget}. "
                            f"You have traveled to {len(countries)}/50 countries.")
 
                 destination = input("\nEnter the country you wish to travel to: ")
@@ -276,3 +276,4 @@ def eugame():
             return
         else:
             typewriter("Invalid input!")
+eugame()
