@@ -21,7 +21,7 @@ def get_heliport_code(country):
     cursor.execute(sql)
     result = cursor.fetchall()
     if not result:
-        print("This country does not exists or is not located in continent EU, try again.")
+        print("\nThis country does not exists or is not located in continent EU, try again.")
         return None
 
     if cursor.rowcount > 0:

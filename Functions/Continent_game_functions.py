@@ -21,7 +21,7 @@ def get_airport_code(country):  # returns a random airport's ICAO of a country
     cursor.execute(sql)
     result = cursor.fetchall()
     if not result:  # if the country doesn't exist in the database it will print an error message
-        print('This country does not exist, try again.')
+        print('\nThis country does not exist, try again.')
         return None
 
     if cursor.rowcount > 0:

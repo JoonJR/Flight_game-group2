@@ -72,7 +72,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 
                     while destination_airport is None:  # if entered country is invalid
 
-                        destination = input("\nEnter the country you wish to travel to: ")
+                        destination = input("Enter the country you wish to travel to: ")
                         destination_airport = get_airport_code(destination)
 
                         if destination == "X" or destination == "x":  # to exit the game
@@ -159,7 +159,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 
                     while destination_airport is None:
 
-                        destination = input("\nEnter the country you wish to travel to: ")
+                        destination = input("Enter the country you wish to travel to: ")
                         destination_airport = get_airport_code(destination)
 
                         if destination == "X" or destination == "x":

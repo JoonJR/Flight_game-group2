@@ -25,7 +25,7 @@ def eugame():
     3. Your helicopter flies through teleportal and you end up at a random destination anywhere in the world.\n\
     2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
     1. Worst possible scenario. You have a 50% chance of dying.\nGood luck!\nps if there are errors its your fault :p\n" \
-                                      "(Type X if you want to exit the game)"
+                                      "(Type X if you want to exit the game)\n"
 
     typewriter(rules)
     is_alive = True
