@@ -12,7 +12,6 @@ def flight_game_continent():
 
     ascii_text(3)
     player_name = input("Enter your name: ")
-    ascii_pictures(7)
     rules = "Hello " + player_name + "! You have been given the mission of travelling to all 7 continents! You will be given a plane and a Co2 budget of 4000 which you cannot exceed. For every 1000km you use 100 Co2.\n\
 Your starting location will be random. From that point you can choose to fly to any country, however the airport will be random.\nYou have 3 rounds/lives, you collect 100 points for each continent per round. \n\
 Every time before you fly a dice of destiny will be rolled. The outcomes of the rolls are as follows:\n\
@@ -25,7 +24,6 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                                      "(Type X if you want to exit the game)\n"
 
     typewriter(rules)
-    ascii_pictures(7)
 
     rounds = 1
     score = 0
