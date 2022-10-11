@@ -62,7 +62,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 
                 if recent_airport != "":  # this whole thing is only used if you roll 4
 
-                    typewriter(f"\nYou are currently in {recent_country} at {get_airport_name(recent_airport)} in {get_continent(recent_country)}. Your current Co2 budget is {budget}. You have traveled to {len(continents)}/7 continents.")
+                    typewriter(f"\nYou are currently in {recent_country.capitalize()} at {get_airport_name(recent_airport)} in {get_continent(recent_country)}. Your current Co2 budget is {budget}. You have traveled to {len(continents)}/7 continents.")
                     score = ((len(continents)) * 100)
                     recent_airport = ""
                     destination = input("\nEnter the country you wish to travel to: ")
@@ -150,7 +150,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 
                     current_airport = get_airport_code(current_country)
                     current_airport_name = get_airport_name(current_airport)
-                    typewriter(f"\nYou are currently in {current_country} at {current_airport_name} in {get_continent(current_country)}. Your current Co2 budget is {budget}. You have traveled to {len(continents)}/7 continents.")
+                    typewriter(f"\nYou are currently in {current_country.capitalize()} at {current_airport_name} in {get_continent(current_country)}. Your current Co2 budget is {budget}. You have traveled to {len(continents)}/7 continents.")
 
                     destination = input("\nEnter the country you wish to travel to: ")
                     destination_airport = get_airport_code(destination)
