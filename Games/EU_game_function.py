@@ -17,16 +17,15 @@ def eugame():
     player_name = input("\nEnter your name: ")
 
     rules = f"Hello " + player_name + "! You have been given the mission of travelling to all 50 EU-countries! You will be" \
-    " given a fancy helicopter with a pilot and a Co2 budget of 10000 which you cannot exceed. For every 1000km you use 300 Co2.\n\
-    Your starting location will be random. From that point you can choose to fly to any country, however the heliports will be random. \n\
-    Every time before you fly a dice of destiny will be rolled. The outcomes of the rolls are as follows:\n\
+    " given a fancy helicopter with a pilot and a Co2 budget of 10000 which you cannot exceed.\nFor every 1000km you use 300 Co2. Your starting location will be random. From that point you can choose to fly to any country, however the heliports will be random.\n" \
+    "Every time before you fly a dice of destiny will be rolled. The outcomes of the rolls are as follows:\n\
     6. You get a full Co2 refund for that particular flight.\n\
     5. You get a 50% Co2 refund for that particular flight.\n\
     4. Your helicopter had to return to the previous heliport. Full amount of Co2 wasted for that trip.\n\
     3. Your helicopter flies through teleportal and you end up at a random destination anywhere in the world.\n\
     2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
-    1. Worst possible scenario. You have a 50% chance of dying.\nGood luck!\nps if there are errors its your fault :p\n"
-    "(Type X if you want to quit the game)"
+    1. Worst possible scenario. You have a 50% chance of dying.\nGood luck!\nps if there are errors its your fault :p\n" \
+                                      "(Type X if you want to exit the game)"
 
     typewriter(rules)
     is_alive = True
