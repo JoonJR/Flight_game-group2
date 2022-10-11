@@ -27,7 +27,7 @@ def eugame():
     1. Worst possible scenario. You have a 50% chance of dying.\nGood luck!\nps if there are errors its your fault :p\n" \
                                       "(Type X if you want to exit the game)"
 
-    #typewriter(rules)
+    typewriter(rules)
     is_alive = True
     budget = 10000
     countries = []
