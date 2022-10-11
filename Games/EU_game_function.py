@@ -27,7 +27,7 @@ def eugame():
     1. Worst possible scenario. You have a 50% chance of dying.\nGood luck!\nps if there are errors its your fault :p\n" \
                                       "(Type X if you want to exit the game)"
 
-    typewriter(rules)
+    #typewriter(rules)
     is_alive = True
     budget = 10000
     countries = []
@@ -52,11 +52,16 @@ def eugame():
                 break
             recent_country = current_country
 
+
             if recent_heliport != "":
                 print(f"\nYou are currently in {recent_country} at {get_heliport_name(recent_heliport)}. Your current Co2 budget is {budget}. "
                       f"You have travelled to {len(countries)}/50 countries.")
                 recent_heliport = ""
-                destination = input("\nEnter the country you wish to travel to: ")
+                destination = input("Enter the country you wish to travel to: ")
+                if destination == "Russia" or destination == "russia":
+                    while destination == "Russia" or destination == "russia":
+                        print("It's currently too dangerous to travel to Russia. Choose another destination")
+                        destination = input("Enter the country you wish to travel to: ")
                 destination_heliport = get_heliport_code(destination)
 
                 if destination == "X" or destination == "x":  # to exit the game
@@ -64,7 +69,10 @@ def eugame():
                     return
 
                 while destination_heliport is None:
-                    destination = input("\nEnter the country you wish to travel to: ")
+                    destination = input("Enter the country you wish to travel to: ")
+                    while destination == "Russia" or destination == "russia":
+                        print("It's currently too dangerous to travel to Russia. Choose another destination")
+                        destination = input("Enter the country you wish to travel to: ")
                     destination_heliport = get_heliport_code(destination)
 
                     if destination == "X" or destination == "x":  # to exit the game
@@ -77,7 +85,7 @@ def eugame():
                     if number == 1:
                         possible_death = random.randint(1, 2)
                         if possible_death == 1:
-                            death = random.randint(0, 4)
+                            death = death_text[random.randint(0, 3)]
                             typewriter(death)
                             is_alive = False
                             break
@@ -89,7 +97,7 @@ def eugame():
                             current_country = destination  # updates the current location
                             if current_country not in countries:
                                 countries.append(current_country)  # appends country to the list
-                            typewriter(neardeath_text[random.randint(0, 5)])
+                            typewriter(neardeath_text[random.randint(0, 3)])
                             typewriter(f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 3.3):.1f} Co2\n")
 
                     if number == 2:
@@ -111,7 +119,7 @@ def eugame():
                         distance = geodesic(get_location(get_heliport_code(current_country)),
                                             get_location(destination_heliport)).kilometers
                         budget -= int(distance / 3.3)  # calculates Co2
-                        typewriter(randomcountry_text[random.randint(0, 3)])
+                        typewriter(randomcountry_text[random.randint(0, 2)])
                         typewriter(f"\n You ended up in {current_country}, {current_heliport}.\nYour flight was {distance:.1f}"
                                    f"kilometers and you had to pay {(distance / 3.3):.1f} Co2\n")
 
@@ -143,7 +151,7 @@ def eugame():
                         current_country = destination
                         if current_country not in countries:
                             countries.append(current_country)  # appends country to the list
-                        typewriter(fullrefund_text[random.randint(0, 4)])
+                        typewriter(fullrefund_text[random.randint(0, 3)])
                         typewriter(f"\nYour flight was {distance:.1f} kilometers and you had to pay {0} Co2")
             else:
 
@@ -153,15 +161,25 @@ def eugame():
                            f"You have traveled to {len(countries)}/50 countries.")
 
                 destination = input("\nEnter the country you wish to travel to: ")
+                if destination == "Russia" or destination == "russia":
+                    while destination == "Russia" or destination == "russia":
+                        print("It's currently too dangerous to travel to Russia. Choose another destination")
+                        destination = input("Enter the country you wish to travel to: ")
                 destination_heliport = get_heliport_code(destination)
 
                 if destination == "X" or destination == "x":
                     os.system("cls")
                     return
 
+
+
                 while destination_heliport is None:
 
-                    destination = input("\nEnter the country you wish to travel to: ")
+                    destination = input("Enter the country you wish to travel to: ")
+                    if destination == "Russia" or destination == "russia":
+                        while destination == "Russia" or destination == "russia":
+                            print("It's currently too dangerous to travel to Russia. Choose another destination")
+                            destination = input("Enter the country you wish to travel to: ")
                     destination_heliport = get_heliport_code(destination)
 
                     if destination == "X" or destination == "x":
@@ -170,10 +188,11 @@ def eugame():
 
                 else:
                     number = random.randint(1, 6)
+                    number = 1
                     if number == 1:  # You have a 50% chance of dying.
                         possible_death = random.randint(1, 2)
                         if possible_death == 1:
-                            death = random.randint(0, 4)
+                            death = death_text[random.randint(0, 3)]
                             typewriter(death)
                             is_alive = False
                             break
@@ -184,7 +203,7 @@ def eugame():
                             current_country = destination  # updates the current location
                             if current_country not in countries:
                                 countries.append(current_country)  # appends country to the list
-                            typewriter(neardeath_text[random.randint(0, 5)])
+                            typewriter(neardeath_text[random.randint(0, 3)])
                             typewriter(f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 3.3):.1f} Co2\n")
 
                     if number == 2:  # You had to take an unexpected detour. Double the amount of Co2 consumed.
@@ -206,7 +225,7 @@ def eugame():
                         distance = geodesic(get_location(get_heliport_code(current_country)),
                                             get_location(destination_heliport)).kilometers
                         budget -= int(distance / 3.3)  # calculates Co2
-                        typewriter(randomcountry_text[random.randint(0, 3)])
+                        typewriter(randomcountry_text[random.randint(0, 2)])
                         typewriter(f"You ended up in {current_country}, {current_heliport}. \nYour flight was {distance:.1f}"
                                    f" kilometers and you had to pay {(distance / 3.3):.1f} Co2\n")
 
@@ -238,8 +257,9 @@ def eugame():
                         current_country = destination
                         if current_country not in countries:
                             countries.append(current_country)  # appends country to the list
-                        typewriter(fullrefund_text[random.randint(0, 4)])
+                        typewriter(fullrefund_text[random.randint(0, 3)])
                         typewriter(f"\nYour flight was {distance:.1f} kilometers and you had to pay {0} Co2\n")
+
 
     else:
         typewriter(f"\nYour score was: {len(countries) * 100}")
@@ -257,3 +277,5 @@ def eugame():
             return
         else:
             typewriter("Invalid input!")
+
+eugame()
