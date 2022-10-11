@@ -20,7 +20,7 @@ def get_airport_code(country):  # returns a random airport's ICAO of a country
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()
-    if not result:  # if the country doesnt exist in the database it will print an error message
+    if not result:  # if the country doesn't exist in the database it will print an error message
         print('This country does not exist, try again.')
         return None
 
@@ -86,7 +86,7 @@ neardeath_text = [
     "You somehow managed to flush the toilet without realising a part of your clothing was in there.\nYou got pulled back into the toilet but thankfully you had your second breakfast that morning.",
     "Your plane was about to take off and then you quickly remembered you didnt change your phones mode to flight mode.\nYou frantically make the change before takeoff saving the lives of many. A true hero.",
     "A bump in the sky during mealtime caused a swedish meatball to go down the wrong pipe. Thankfully a vet was nearby to help.",
-    "The pilot didn’t get much sleep the night before because his newborn was crying and screaming.\nThankfully the crying and screaming of you and the other passengers also woke him up."]
+    "The pilot didn't get much sleep the night before because his newborn was crying and screaming.\nThankfully the crying and screaming of you and the other passengers also woke him up."]
 
 randomcountry_text = ["The pilot forgot to Never Eat Soggy Waffles and ended up going in the opposite direction.",
                       "Your pilot partied a bit too much the night before and didn't realise a change of schedule.",

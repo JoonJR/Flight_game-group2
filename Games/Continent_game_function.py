@@ -1,6 +1,5 @@
 from geopy.distance import geodesic
 import random
-from Functions.Functions import *
 import os
 from Functions.Continent_game_functions import *
 
@@ -22,7 +21,9 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
     4. Your plane had to return to the previous airport. Full amount of Co2 wasted for that trip.\n\
     3. Your planes GPS breaks and you end up at a random destination anywhere in the world.\n\
     2. You had to take an unexpected detour. Double the amount of Co2 consumed.\n\
-    1. Worst possible scenario. You have a 50% chance of dying.\nGood luck!\nps if there are errors its your fault :p\n"
+    1. Worst possible scenario. You have a 50% chance of dying.\nGood luck!\nps if there are errors its your fault :p\n" \
+                                     "(Type X if you want to exit the game)\n"
+
     typewriter(rules)
     ascii_pictures(7)
 
@@ -44,13 +45,13 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 
         while is_alive:  # while the game is on and player is alive
 
-            if budget <= 0: #the game ends if you run out of the budget
+            if budget <= 0:  # the game ends if you run out of the budget
                 print("You ran out of Co2 before reaching all the continents.")
                 break
 
             while budget > 0 and is_alive:
 
-                if len(continents) == 7: # if all 7 continents are collected
+                if len(continents) == 7:  # if all 7 continents are collected
                     ascii_pictures(9)
                     typewriter("\nYou won! You made it to all 7 continents without exceeding your budget!\n\n")
                     ascii_pictures(8)
@@ -65,7 +66,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                     score = ((len(continents)) * 100)
                     recent_airport = ""
                     destination = input("\nEnter the country you wish to travel to: ")
-                    destination_airport = get_airport_code(destination) # gets a random airport ICAO of the country you wish to fly to
+                    destination_airport = get_airport_code(destination)  # gets a random airport ICAO of the country you wish to fly to
 
                     if destination == "X" or destination == "x":  # to exit the game
                         os.system("cls")
@@ -85,17 +86,17 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                         number = random.randint(1, 6)
                         if number == 1:  # You have a 50% chance of dying.
                             possible_death = random.randint(1, 2)
-                            if possible_death == 1: # you died
+                            if possible_death == 1:  # you died
                                 death_pic = random.randint(0, 4)
                                 death = death_text[death_pic]
-                                ascii_pictures(death_pic) # prints a picture that corresponds to the death text
+                                ascii_pictures(death_pic)  # prints a picture that corresponds to the death text
                                 typewriter(death)
                                 is_alive = False
                                 break
                             else:  # you survived
                                 distance = geodesic(get_location(get_airport_code(current_country)), get_location(destination_airport)).kilometers
                                 budget -= int(distance / 10)  # calculates Co2
-                                current_country = destination # your previous destination becomes your current country
+                                current_country = destination  # your previous destination becomes your current country
                                 check_continents(get_continent(current_country))
                                 typewriter(neardeath_text[random.randint(0, 5)])
                                 typewriter(f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
@@ -123,7 +124,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                         if number == 4:  # Your plane had to return to the previous airport. Full amount of Co2 wasted
 
                             recent_airport += current_airport  # changes the value of the current airport to the recent
-                            distance = geodesic(get_location(current_airport), get_location(destination_airport)).kilometers #calculates the distance for the planned flight
+                            distance = geodesic(get_location(current_airport), get_location(destination_airport)).kilometers  # calculates the distance for the planned flight
                             budget -= int(distance / 10)
                             typewriter("Your plane had to return to the previous airport. Full amount of Co2 had to be paid.")
                             typewriter(f"\nYour flight was {0} kilometers and you had to pay {(distance / 10):.1f} Co2")
@@ -187,7 +188,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                                 typewriter(neardeath_text[random.randint(0, 5)])
                                 typewriter(f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2\n")
 
-                        if number == 2:  #You had to take an unexpected detour. Double the amount of Co2 consumed.
+                        if number == 2:  # You had to take an unexpected detour. Double the amount of Co2 consumed.
 
                             distance = geodesic(get_location(current_airport), get_location(destination_airport)).kilometers
                             budget -= int(distance / 10) * 2  # calculates Co2
@@ -196,12 +197,12 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                             typewriter("Your plane had to take an unexpected detour, doubling the cost of Co2.")
                             typewriter(f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 10) * 2:.1f} Co2\n")
 
-                        if number == 3:  #you end up at a random destination anywhere in the world.
+                        if number == 3:  # you end up at a random destination anywhere in the world.
 
                             random_country = get_country()  # the new random country
                             new_destination = get_airport_code(random_country)  # the location of the airport in a new random country
                             distance = geodesic(get_location(current_airport), get_location(new_destination)).kilometers
-                            current_country = random_country #updates the current country
+                            current_country = random_country  # updates the current country
                             budget -= int(distance / 10)  # calculates Co2
                             check_continents(get_continent(current_country))
                             typewriter(randomcountry_text[random.randint(0, 3)])
@@ -209,7 +210,7 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 
                         if number == 4:  # Your plane had to return to the previous airport. Full amount of Co2 wasted
 
-                            recent_airport += current_airport # changes the value of the current airport to the recent
+                            recent_airport += current_airport  # changes the value of the current airport to the recent
                             distance = geodesic(get_location(current_airport), get_location(destination_airport)).kilometers
                             budget -= int(distance / 10)
                             typewriter("Your plane had to return to the previous airport. Full amount of Co2 had to be paid.")

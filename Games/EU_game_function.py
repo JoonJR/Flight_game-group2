@@ -1,7 +1,6 @@
 from geopy.distance import geodesic
 import random
 import os
-from Functions.Functions import *
 from Functions.EU_game_functions import *
 connection = mysql.connector.connect(
          host='127.0.0.1',
@@ -11,6 +10,7 @@ connection = mysql.connector.connect(
          password='root',
          autocommit=True
          )
+
 
 def eugame():
     ascii_text(7)
@@ -59,7 +59,7 @@ def eugame():
                 destination = input("\nEnter the country you wish to travel to: ")
                 destination_heliport = get_heliport_code(destination)
 
-                if destination == "X" or destination == "x": #to exit the game
+                if destination == "X" or destination == "x":  # to exit the game
                     os.system("cls")
                     return
 
@@ -67,7 +67,7 @@ def eugame():
                     destination = input("\nEnter the country you wish to travel to: ")
                     destination_heliport = get_heliport_code(destination)
 
-                    if destination == "X" or destination == "x":  #to exit the game
+                    if destination == "X" or destination == "x":  # to exit the game
                         os.system("cls")
                         return
 
@@ -113,7 +113,7 @@ def eugame():
                         budget -= int(distance / 3.3)  # calculates Co2
                         typewriter(randomcountry_text[random.randint(0, 3)])
                         typewriter(f"\nYou ended up in {current_country}, {current_heliport}.\nYour flight was {distance:.1f}"
-                              f"kilometers and you had to pay {(distance / 3.3):.1f} Co2\n")
+                                   f"kilometers and you had to pay {(distance / 3.3):.1f} Co2\n")
 
                     if number == 4:
 
@@ -208,7 +208,7 @@ def eugame():
                         budget -= int(distance / 3.3)  # calculates Co2
                         typewriter(randomcountry_text[random.randint(0, 3)])
                         typewriter(f"You ended up in {current_country}, {current_heliport}. \nYour flight was {distance:.1f}"
-                            f" kilometers and you had to pay {(distance / 3.3):.1f} Co2\n")
+                                   f" kilometers and you had to pay {(distance / 3.3):.1f} Co2\n")
 
                     if number == 4:
 
@@ -241,7 +241,6 @@ def eugame():
                         typewriter(fullrefund_text[random.randint(0, 4)])
                         typewriter(f"\nYour flight was {distance:.1f} kilometers and you had to pay {0} Co2\n")
 
-
     else:
         typewriter(f"\nYour score was: {len(countries) * 100}")
 
@@ -253,7 +252,7 @@ def eugame():
         if decision == "N" or decision == 'n':
             typewriter("Flying back to the main menu. Please fasten your seatbelt...")
             time.sleep(1)
-            os.system('cls') # opens main menu in a new page (clears everything before that) but doesnt work in pycharm
+            os.system('cls')  # opens main menu in a new page (clears everything before that) but doesn't work in pycharm
             logo()
             return
         else:

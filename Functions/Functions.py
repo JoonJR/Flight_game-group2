@@ -34,7 +34,7 @@ def cheat_sheet():
                      'Finland     ', 'Switzerland  ', 'Liechtenstein  '], ['Bosnia and Herzegovina  ', 'San Marino  ',
                      'United Kingdom  ', 'Vatican City  ', 'North Macedonia  ', 'Romania  ', 'Luxembourg ',
                      'Czech Republic  ', 'Lithuania  ', 'Slovenia  ', 'Faroe Islands  ', '', '', '', '']]
-    print("\nCHEAT SHEET, MAKE SURE TEACHER DOESN'T SEE YOU!!!")
+    print("\nCHEAT SHEET, MAKE SURE TEACHER DOESN'T SEE YOU!!!\n")
     for x, y, z, q in zip(*country_list):
         print(x, y, z, q)
 
@@ -46,7 +46,7 @@ def cheat_cheet_continent():
                     'Venezuela        ', 'Colombia        '], ['Oceania      ', '', 'Australia     ', 'Nauru      ',
                     'Tuvalu       '], ['Africa      ', '', 'Ghana      ', 'Ethiopia     ', 'Egypt       '], ['Antarctica',
                     '', ' Antarctica', 'South Georgia and the South Sandwich Isl', 'French Southern Territories']]
-    print("\nCHEAT SHEET, MAKE SURE TEACHER DOESN'T SEE YOU!!!")
+    print("\nCHEAT SHEET, MAKE SURE TEACHER DOESN'T SEE YOU!!!\n")
     for x, y, z, q, t, r, p in zip(*country_list):
         print(x, y, z, q, t, r, p)
 

@@ -18,7 +18,7 @@ while True:
                 flight_game_continent()  # opens the continent game
             elif continent_menu == "2":
                 cheat_cheet_continent()
-                back = input("\n\n\nPress ENTER to go back") # returns to the eu game menu
+                back = input("\n\n\nPress ENTER to go back")  # returns to the eu game menu
                 os.system('cls')
             elif continent_menu == "3":  # returns to the main menu
                 os.system('cls')
