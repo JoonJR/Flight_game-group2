@@ -33,7 +33,6 @@ def eugame():
     countries = []
     current_country = get_country()
     countries.append(current_country)
-    destination = None
     current_heliport = None
     recent_heliport = ""
 
@@ -41,7 +40,6 @@ def eugame():
 
         if budget <= 0:
             print("\nYou ran out of Co2 before reaching all the continents. Game Over!")
-            is_alive = False  # you lost
             break
 
         while budget > 0 and is_alive:
