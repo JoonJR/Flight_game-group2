@@ -1,7 +1,7 @@
 from Functions.Functions import *
 
 
-def get_country():
+def get_country():  # returns a random country from the database
     sql = "SELECT country.name FROM country, airport WHERE airport.iso_country = country.iso_country and airport.type like '%airport' ORDER BY RAND() LIMIT 1"
     cursor = connection.cursor()
     cursor.execute(sql)
@@ -11,7 +11,7 @@ def get_country():
             return row[0]
 
 
-def get_airport_code(country):
+def get_airport_code(country):  # returns a random airport's ICAO of a country
     sql = "SELECT airport.ident FROM airport, country  WHERE country.iso_country = airport.iso_country and" \
           " country.name ='" + country + "' AND airport.type = 'medium_airport' OR country.iso_country = " \
           "airport.iso_country and country.name ='" + country + "' and airport.type = 'large_airport' OR" \
@@ -20,7 +20,7 @@ def get_airport_code(country):
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()
-    if not result:
+    if not result:  # if the country doesnt exist in the database it will print an error message
         print('This country does not exist, try again.')
         return None
 
@@ -29,7 +29,7 @@ def get_airport_code(country):
             return row[0]
 
 
-def get_airport_name(code):
+def get_airport_name(code):  # returns an airport name from the ICAO
     sql = "SELECT airport.name FROM airport WHERE airport.ident ='" + code + "'"
     cursor = connection.cursor()
     cursor.execute(sql)
@@ -39,7 +39,7 @@ def get_airport_name(code):
             return row[0]
 
 
-def get_continent(country):  # returns continent
+def get_continent(country):  # returns a continent
     sql = "SELECT country.continent FROM country WHERE country.name ='" + country + "'"
     cursor = connection.cursor()
     cursor.execute(sql)
@@ -62,7 +62,7 @@ def get_location(code):  # returns long/lat of an airport
         return location
 
 
-def typewriter(rules):
+def typewriter(rules):  # text animation
     for char in rules:
         sys.stdout.write(char)
         sys.stdout.flush()
@@ -81,12 +81,12 @@ death_text = [
     "Someone's beloved pet cobra somehow escaped from its cage and found its way up your pants. Unfortunately you only realised this after it bit you. You took your last breath 15 minutes later."]
 
 neardeath_text = [
-    "You tripped while leaving the plane and proceeded to fall down the stairs, you thought it was all over\n before the real Tom of Finland grabbed your arm, saving your life. Chills.",
     "Some strong turbulence managed to open a loose baggage compartment. Someones weights fell out and almost hit you on the head.\nThankfully they hit the person next to you.",
     "You were offered a meal choice of either fish or meat, you were about to choose fish before remembering the golden rule. That was a close one.",
     "You somehow managed to flush the toilet without realising a part of your clothing was in there.\nYou got pulled back into the toilet but thankfully you had your second breakfast that morning.",
     "Your plane was about to take off and then you quickly remembered you didnt change your phones mode to flight mode.\nYou frantically make the change before takeoff saving the lives of many. A true hero.",
-    "A bump in the sky during mealtime caused a swedish meatball to go down the wrong pipe. Thankfully a vet was nearby to help."]
+    "A bump in the sky during mealtime caused a swedish meatball to go down the wrong pipe. Thankfully a vet was nearby to help.",
+    "The pilot didn’t get much sleep the night before because his newborn was crying and screaming.\nThankfully the crying and screaming of you and the other passengers also woke him up."]
 
 randomcountry_text = ["The pilot forgot to Never Eat Soggy Waffles and ended up going in the opposite direction.",
                       "Your pilot partied a bit too much the night before and didn't realise a change of schedule.",
