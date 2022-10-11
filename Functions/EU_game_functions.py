@@ -11,7 +11,12 @@ def get_country():
 
 
 def get_heliport_code(country):
-    sql = "SELECT airport.ident FROM airport, country  WHERE country.continent = 'EU' and country.iso_country = airport.iso_country and country.name ='" + country + "' AND airport.type = 'heliport' OR country.continent = 'EU' and country.iso_country = airport.iso_country and country.name ='" + country + "' and airport.type = 'small_airport' OR country.continent = 'EU' and country.iso_country = airport.iso_country and country.name ='" + country + "' and airport.type = 'medium_airport' order by (case when airport.type = 'heliport' then 1 else 2 END) LIMIT 1"
+    sql = "SELECT airport.ident FROM airport, country  WHERE country.continent = 'EU' and country.iso_country =" \
+          " airport.iso_country and country.name ='" + country + "' AND airport.type = 'heliport' OR" \
+          " country.continent = 'EU' and country.iso_country = airport.iso_country and country.name ='" + country + "'"\
+          " and airport.type = 'small_airport' OR country.continent = 'EU' and country.iso_country = " \
+          "airport.iso_country and country.name ='" + country + "' and airport.type = 'medium_airport'" \
+          " order by (case when airport.type = 'heliport' then 1 else 2 END) LIMIT 1"
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()

@@ -12,7 +12,11 @@ def get_country():
 
 
 def get_airport_code(country):
-    sql = "SELECT airport.ident FROM airport, country  WHERE country.iso_country = airport.iso_country and country.name ='" + country + "' AND airport.type = 'medium_airport' OR country.iso_country = airport.iso_country and country.name ='" + country + "' and airport.type = 'large_airport' OR country.iso_country = airport.iso_country and country.name ='" + country + "' and airport.type = 'small_airport' order by (case when airport.type = 'medium_airport' then 1 ELSE 2 END), RAND() LIMIT 1"
+    sql = "SELECT airport.ident FROM airport, country  WHERE country.iso_country = airport.iso_country and" \
+          " country.name ='" + country + "' AND airport.type = 'medium_airport' OR country.iso_country = " \
+          "airport.iso_country and country.name ='" + country + "' and airport.type = 'large_airport' OR" \
+          " country.iso_country = airport.iso_country and country.name ='" + country + "' and airport.type" \
+          " = 'small_airport' order by (case when airport.type = 'medium_airport' then 1 ELSE 2 END), RAND() LIMIT 1"
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()
