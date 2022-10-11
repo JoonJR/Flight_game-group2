@@ -188,7 +188,6 @@ def eugame():
 
                 else:
                     number = random.randint(1, 6)
-                    number = 1
                     if number == 1:  # You have a 50% chance of dying.
                         possible_death = random.randint(1, 2)
                         if possible_death == 1:
@@ -277,5 +276,3 @@ def eugame():
             return
         else:
             typewriter("Invalid input!")
-
-eugame()
