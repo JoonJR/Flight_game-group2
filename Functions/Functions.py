@@ -39,6 +39,19 @@ def cheat_sheet():
         print(x, y, z, q)
 
 
+def cheat_cheet_continent():
+    country_list = [['Europe     ', '', 'Finland   ', 'Poland  ', 'Italy     '], ['Asia     ', '', 'India        ',
+                    'Bangladesh   ', 'Turkey      '], ['North-America     ', '', 'Canada           ',
+                    'Costa Rica         ', 'Guatemala         '], ['South-America     ', '', 'Argentina       ',
+                    'Venezuela         ', 'Colombia         '], ['Oceania      ', '', 'Australia     ', 'Nauru      ',
+                    'Tuvalu       '], ['Africa      ', '', 'Ghana      ', 'Ethiopia    ', 'Egypt      '], ['Antarctica',
+                    '', ' Antarctica', 'South Georgia and the South Sandwich Isl', 'French Southern Territories']]
+    print("\nCHEAT SHEET, MAKE SURE TEACHER DOESN'T SEE YOU!!!")
+    for x, y, z, q, t, r, p in zip(*country_list):
+        print(x, y, z, q, t, r, p)
+
+
+
 def credits_text():
     ascii_text(6)
     credits = "Designed and developed by Group 2\nKarin Domagalska\nJoona Rantala\nCan Erman\nNadim Ahmed"

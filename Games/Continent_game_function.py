@@ -67,10 +67,18 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                     destination = input("\nEnter the country you wish to travel to: ")
                     destination_airport = get_airport_code(destination) # gets a random airport ICAO of the country you wish to fly to
 
+                    if destination == "X" or destination == "x":  # to exit the game
+                        os.system("cls")
+                        return
+
                     while destination_airport is None:  # if entered country is invalid
 
                         destination = input("\nEnter the country you wish to travel to: ")
                         destination_airport = get_airport_code(destination)
+
+                        if destination == "X" or destination == "x":  # to exit the game
+                            os.system("cls")
+                            return
 
                     else:
 
@@ -146,10 +154,18 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                     destination = input("\nEnter the country you wish to travel to: ")
                     destination_airport = get_airport_code(destination)
 
+                    if destination == "X" or destination == "x":
+                        os.system("cls")
+                        return
+
                     while destination_airport is None:
 
                         destination = input("\nEnter the country you wish to travel to: ")
                         destination_airport = get_airport_code(destination)
+
+                        if destination == "X" or destination == "x":
+                            os.system("cls")
+                            return
 
                     else:
                         number = random.randint(1, 6)

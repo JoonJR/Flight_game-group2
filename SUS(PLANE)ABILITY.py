@@ -7,10 +7,26 @@ typewriter("\nWelcome to Sus-PLANE-ability\n")
 while True:
     main_menu = input("1. Continent game \n2. Europe game \n3. Credits \n4. Quit\n>>> ")
     if main_menu == "1":
-        typewriter("Flying to the Continent Game. Please fasten your seatbelt...")
-        time.sleep(1)  # suspends execution for 1 second
-        os.system('cls')  # opens game on a new page (clears everything before that)
-        flight_game_continent()  # opens the continent game
+        os.system('cls')
+        while True:
+            ascii_text(3)
+            continent_menu = input("\n1. Start \n2. Country cheat sheet. \n3. Back \n>>>")
+            if continent_menu == "1":
+                typewriter("Flying to the Continent Game. Please fasten your seatbelt...")
+                time.sleep(1)  # suspends execution for 1 second
+                os.system('cls')  # opens game on a new page (clears everything before that)
+                flight_game_continent()  # opens the continent game
+            elif continent_menu == "2":
+                cheat_cheet_continent()
+                back = input("\n\n\nPress ENTER to go back") # returns to the eu game menu
+                os.system('cls')
+            elif continent_menu == "3":  # returns to the main menu
+                os.system('cls')
+                logo()
+                typewriter("\nWelcome to Sus-PLANE-ability\n")
+                break
+            else:
+                print("Enter a valid input")
     elif main_menu == "2":  # EU game menu
         os.system('cls')
         while True:

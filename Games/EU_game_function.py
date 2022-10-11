@@ -45,8 +45,11 @@ def eugame():
         while budget > 0 and is_alive:
 
             if len(countries) == 50:
-                print("\nYou won! You made it to all 50 countries without exceeding your budget!")
+                ascii_pictures(9)
+                typewriter("\nYou won! You made it to all 50 countries without exceeding your budget!\n\n")
+                ascii_pictures(8)
                 is_alive = False  # you won! the game is finished
+                break
             recent_country = current_country
 
             if recent_heliport != "":
@@ -55,6 +58,7 @@ def eugame():
                 recent_heliport = ""
                 destination = input("\nEnter the country you wish to travel to: ")
                 destination_heliport = get_heliport_code(destination)
+
                 if destination == "X" or destination == "x": #to exit the game
                     os.system("cls")
                     return
@@ -62,6 +66,7 @@ def eugame():
                 while destination_heliport is None:
                     destination = input("\nEnter the country you wish to travel to: ")
                     destination_heliport = get_heliport_code(destination)
+
                     if destination == "X" or destination == "x":  #to exit the game
                         os.system("cls")
                         return
@@ -144,11 +149,12 @@ def eugame():
 
                 current_heliport = get_heliport_code(current_country)
                 current_heliport_name = get_heliport_name(current_heliport)
-                typewriter(f"\nYou are currently in {current_country} at {current_heliport_name}. Your current Co2 budget is {budget}."
-                      f"You have traveled to {len(countries)}/50 countries.")
+                typewriter(f"\nYou are currently in {current_country} at {current_heliport_name}. Your current Co2 budget is {budget}. "
+                           f"You have traveled to {len(countries)}/50 countries.")
 
                 destination = input("\nEnter the country you wish to travel to: ")
                 destination_heliport = get_heliport_code(destination)
+
                 if destination == "X" or destination == "x":
                     os.system("cls")
                     return
@@ -157,6 +163,7 @@ def eugame():
 
                     destination = input("\nEnter the country you wish to travel to: ")
                     destination_heliport = get_heliport_code(destination)
+
                     if destination == "X" or destination == "x":
                         os.system("cls")
                         return
