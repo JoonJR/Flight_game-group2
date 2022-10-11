@@ -276,4 +276,3 @@ def eugame():
             return
         else:
             typewriter("Invalid input!")
-eugame()
