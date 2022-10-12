@@ -60,7 +60,9 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 
                 if recent_airport != "":  # this whole thing is only used if you roll 4
 
-                    typewriter(f"\nYou are currently in {recent_country.capitalize()} at {get_airport_name(recent_airport)} in {get_continent(recent_country)}. Your current Co2 budget is {budget}. You have traveled to {len(continents)}/7 continents.")
+                    typewriter(f"\nYou are currently in {recent_country.capitalize()} at {get_airport_name(recent_airport)}"
+                               f" in {get_continent(recent_country)}. Your current Co2 budget is {budget}. You have"
+                               f" travelled to {len(continents)}/7 continents.")
                     score = ((len(continents)) * 100)
                     recent_airport = ""
                     destination = input("\nEnter the country you wish to travel to: ")
@@ -92,7 +94,8 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                                 is_alive = False
                                 break
                             else:  # you survived
-                                distance = geodesic(get_location(get_airport_code(current_country)), get_location(destination_airport)).kilometers
+                                distance = geodesic(get_location(get_airport_code(current_country)),
+                                                    get_location(destination_airport)).kilometers
                                 budget -= int(distance / 10)  # calculates Co2
                                 current_country = destination  # your previous destination becomes your current country
                                 check_continents(get_continent(current_country))
@@ -117,7 +120,8 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                             budget -= int(distance / 10)  # calculates Co2
                             check_continents(get_continent(current_country))
                             typewriter(randomcountry_text[random.randint(0, 3)])
-                            typewriter(f"\nYou ended up in {current_country} in {get_continent(current_country)}. Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
+                            typewriter(f"\nYou ended up in {current_country} in {get_continent(current_country)}. "
+                                       f"Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2")
 
                         if number == 4:  # Your plane had to return to the previous airport. Full amount of Co2 wasted
 
@@ -129,7 +133,8 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 
                         if number == 5:  # You get a 50% Co2 refund for that particular flight.
 
-                            distance = geodesic(get_location(get_airport_code(current_country)), get_location(destination_airport)).kilometers
+                            distance = geodesic(get_location(get_airport_code(current_country)),
+                                                get_location(destination_airport)).kilometers
                             budget -= int(distance / 10) / 2
                             current_country = destination
                             check_continents(get_continent(current_country))
@@ -137,7 +142,8 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                             typewriter(f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 10) / 2:.1f} Co2")
 
                         if number == 6:   # You get a full Co2 refund for that particular flight.
-                            distance = geodesic(get_location(get_airport_code(current_country)), get_location(destination_airport)).kilometers
+                            distance = geodesic(get_location(get_airport_code(current_country)),
+                                                get_location(destination_airport)).kilometers
                             budget -= int(distance / 10) - int(distance / 10)
                             current_country = destination
                             check_continents(get_continent(current_country))
@@ -148,7 +154,9 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
 
                     current_airport = get_airport_code(current_country)
                     current_airport_name = get_airport_name(current_airport)
-                    typewriter(f"\nYou are currently in {current_country.capitalize()} at {current_airport_name} in {get_continent(current_country)}. Your current Co2 budget is {budget}. You have traveled to {len(continents)}/7 continents.")
+                    typewriter(f"\nYou are currently in {current_country.capitalize()} at {current_airport_name} in"
+                               f" {get_continent(current_country)}. Your current Co2 budget is {budget}. You have "
+                               f"travelled to {len(continents)}/7 continents.")
 
                     destination = input("\nEnter the country you wish to travel to: ")
                     destination_airport = get_airport_code(destination)
@@ -204,7 +212,8 @@ Every time before you fly a dice of destiny will be rolled. The outcomes of the 
                             budget -= int(distance / 10)  # calculates Co2
                             check_continents(get_continent(current_country))
                             typewriter(randomcountry_text[random.randint(0, 3)])
-                            typewriter(f"\nYou ended up in {current_country} in {get_continent(current_country)}. Your flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2\n")
+                            typewriter(f"\nYou ended up in {current_country} in {get_continent(current_country)}. Your "
+                                       f"flight was {distance:.1f} kilometers and you had to pay {(distance / 10):.1f} Co2\n")
 
                         if number == 4:  # Your plane had to return to the previous airport. Full amount of Co2 wasted
 

@@ -3,14 +3,14 @@ from Games.EU_game_function import *
 import os
 
 logo()
-typewriter("\nWelcome to Sus-PLANE-ability\n")
+typewriter("\nWelcome to SUS(PLANE)ABILITY\n")
 while True:
     main_menu = input("1. Continent game \n2. Europe game \n3. Credits \n4. Quit\n>>> ")
     if main_menu == "1":
         os.system('cls')
         while True:
             ascii_text(3)
-            continent_menu = input("\n1. Start \n2. Country cheat sheet. \n3. Back \n>>>")
+            continent_menu = input("\n1. Start \n2. Country cheat sheet \n3. Back \n>>>")
             if continent_menu == "1":
                 typewriter("Flying to the Continent Game. Please fasten your seatbelt...")
                 time.sleep(1)  # suspends execution for 1 second
@@ -23,7 +23,7 @@ while True:
             elif continent_menu == "3":  # returns to the main menu
                 os.system('cls')
                 logo()
-                typewriter("\nWelcome to Sus-PLANE-ability\n")
+                typewriter("\nWelcome to SUS(PLANE)ABILITY\n")
                 break
             else:
                 print("Enter a valid input")
@@ -31,7 +31,7 @@ while True:
         os.system('cls')
         while True:
             ascii_text(7)
-            eu_menu = input("\n1. Start \n2. Country cheat sheet. \n3. Back \n>>>")
+            eu_menu = input("\n1. Start \n2. Country cheat sheet \n3. Back \n>>>")
             if eu_menu == "1":
                 typewriter("Flying to the EU Game. Please fasten your seatbelt...")
                 time.sleep(1)
@@ -44,7 +44,7 @@ while True:
             elif eu_menu == "3":  # returns to the main menu
                 os.system('cls')
                 logo()
-                typewriter("\nWelcome to Sus-PLANE-ability\n")
+                typewriter("\nWelcome to SUS(PLANE)ABILITY\n")
                 break
             else:
                 print("Enter a valid input")
@@ -56,14 +56,14 @@ while True:
             if choice == "Y" or choice == "y":
                 os.system('cls')
                 logo()
-                typewriter("\nWelcome to Sus-PLANE-ability\n")
+                typewriter("\nWelcome to SUS(PLANE)ABILITY\n")
                 break
             elif choice == "N" or choice == "n":
                 easter_egg()
                 input("Press ENTER to continue")  # exits to the main menu
                 os.system('cls')
                 logo()
-                typewriter("\nWelcome to Sus-PLANE-ability\n")
+                typewriter("\nWelcome to SUS(PLANE)ABILITY\n")
                 break
             else:
                 print("Enter a valid input")
