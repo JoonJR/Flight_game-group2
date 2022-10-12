@@ -60,7 +60,7 @@ def eugame():
                 destination = input("Enter the country you wish to travel to: ")
                 if destination == "Russia" or destination == "russia":
                     while destination == "Russia" or destination == "russia":
-                        print("You managed to cross the border but were too scared to land in Russia. Choose another destination")
+                        typewriter("You managed to cross the border but were too scared to land in Russia. Choose another destination\n")
                         countries.append("Russia")
                         destination = input("Enter the country you wish to travel to: ")
                 destination_heliport = get_heliport_code(destination)
@@ -72,7 +72,7 @@ def eugame():
                 while destination_heliport is None:
                     destination = input("Enter the country you wish to travel to: ")
                     while destination == "Russia" or destination == "russia":
-                        print("You managed to cross the border but were too scared to land in Russia. Choose another destination")
+                        typewriter("You managed to cross the border but were too scared to land in Russia. Choose another destination\n")
                         countries.append("Russia")
                         destination = input("Enter the country you wish to travel to: ")
                     destination_heliport = get_heliport_code(destination)
@@ -165,7 +165,7 @@ def eugame():
                 destination = input("\nEnter the country you wish to travel to: ")
                 if destination == "Russia" or destination == "russia":
                     while destination == "Russia" or destination == "russia":
-                        print("You managed to cross the border but were too scared to land in Russia. Choose another destination")
+                        typewriter("You managed to cross the border but were too scared to land in Russia. Choose another destination\n")
                         countries.append("Russia")
                         destination = input("Enter the country you wish to travel to: ")
                 destination_heliport = get_heliport_code(destination)
@@ -181,7 +181,7 @@ def eugame():
                     destination = input("Enter the country you wish to travel to: ")
                     if destination == "Russia" or destination == "russia":
                         while destination == "Russia" or destination == "russia":
-                            print("You managed to cross the border but were too scared to land in Russia. Choose another destination")
+                            typewriter("You managed to cross the border but were too scared to land in Russia. Choose another destination\n")
                             countries.append("Russia")
                             destination = input("Enter the country you wish to travel to: ")
                     destination_heliport = get_heliport_code(destination)
