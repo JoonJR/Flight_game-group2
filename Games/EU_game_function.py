@@ -60,7 +60,8 @@ def eugame():
                 destination = input("Enter the country you wish to travel to: ")
                 if destination == "Russia" or destination == "russia":
                     while destination == "Russia" or destination == "russia":
-                        print("It's currently too dangerous to travel to Russia. Choose another destination")
+                        print("You managed to cross the border but were too scared to land in Russia. Choose another destination")
+                        countries.append("Russia")
                         destination = input("Enter the country you wish to travel to: ")
                 destination_heliport = get_heliport_code(destination)
 
@@ -71,7 +72,8 @@ def eugame():
                 while destination_heliport is None:
                     destination = input("Enter the country you wish to travel to: ")
                     while destination == "Russia" or destination == "russia":
-                        print("It's currently too dangerous to travel to Russia. Choose another destination")
+                        print("You managed to cross the border but were too scared to land in Russia. Choose another destination")
+                        countries.append("Russia")
                         destination = input("Enter the country you wish to travel to: ")
                     destination_heliport = get_heliport_code(destination)
 
@@ -96,7 +98,7 @@ def eugame():
                             budget -= int(distance / 3.3)  # calculates Co2
                             current_country = destination  # updates the current location
                             if current_country not in countries:
-                                countries.append(current_country)  # appends country to the list
+                                countries.append(current_country)# appends country to the list
                             typewriter(neardeath_text[random.randint(0, 3)])
                             typewriter(f"\nYour flight was {distance:.1f} kilometers and you had to pay {(distance / 3.3):.1f} Co2\n")
 
@@ -163,7 +165,8 @@ def eugame():
                 destination = input("\nEnter the country you wish to travel to: ")
                 if destination == "Russia" or destination == "russia":
                     while destination == "Russia" or destination == "russia":
-                        print("It's currently too dangerous to travel to Russia. Choose another destination")
+                        print("You managed to cross the border but were too scared to land in Russia. Choose another destination")
+                        countries.append("Russia")
                         destination = input("Enter the country you wish to travel to: ")
                 destination_heliport = get_heliport_code(destination)
 
@@ -178,7 +181,8 @@ def eugame():
                     destination = input("Enter the country you wish to travel to: ")
                     if destination == "Russia" or destination == "russia":
                         while destination == "Russia" or destination == "russia":
-                            print("It's currently too dangerous to travel to Russia. Choose another destination")
+                            print("You managed to cross the border but were too scared to land in Russia. Choose another destination")
+                            countries.append("Russia")
                             destination = input("Enter the country you wish to travel to: ")
                     destination_heliport = get_heliport_code(destination)
 
@@ -276,3 +280,4 @@ def eugame():
             return
         else:
             typewriter("Invalid input!")
+
