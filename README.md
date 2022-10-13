@@ -38,7 +38,7 @@ EU Game:
 
 Player will start and put his/her name, Player will be assigned a random country and random heliport and a budget of Co2. Then player will enter the name of the destination country. Here is some surprise for the player by rolling the dice and give the advantages or disadvantages according to the pre-decided game functions. Player will continue with the game until the co2 budget runs out or he/she travelled countries from all 50 countries. Game will run for one round and player will know the score after it.
 # Game Procedure
-![img_1.png](img_1.png)
+![img.png](img.png)
 # Functional requirements (CONTINENT GAME)
 •	Player can choose the game want to play from the menu
 
